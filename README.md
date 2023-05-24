@@ -3,7 +3,7 @@
 # <Repository Title>
 
 ## Description
-This is the code repository for <program/library name>, a <program/library> for (description of what it does).
+Code and documentation for Mi Nap sleep diary smartwatch app and related infrastructure, developed by the 2023 ITS intern cohort at the University of Michigan. This Fitbit / Apple Watch / Garmin smartwatch app allows clinical research participants to keep a sleep diary on their watch, with the data being securely transferred to a staging cloud storage service, and then to a Oracle PL/SQL database that sits behind a firewal.
 
 
 
@@ -27,7 +27,7 @@ This is the code repository for <program/library name>, a <program/library> for 
 
 
 ## Contact
-To get in touch, contact the individual developers in the check-in history.
+To get in touch, contact the individual developers in the check-in history or email minap2023its@umich.edu.
 
 If you need assistance identifying a contact person, email the EFDC's Mobile Technologies Core at: efdc-mobiletech@umich.edu.
 
