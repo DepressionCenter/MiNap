@@ -1,0 +1,110 @@
+﻿schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Minapdb {
+  participantid: Int!
+  sleepSessionEnd: Int
+  sleepSessionStart: Int
+}
+
+type MinapdbConnection {
+  items: [Minapdb]
+  nextToken: String
+}
+
+type Mutation {
+  createMinapdb(input: CreateMinapdbInput!): Minapdb
+  deleteMinapdb(input: DeleteMinapdbInput!): Minapdb
+  updateMinapdb(input: UpdateMinapdbInput!): Minapdb
+}
+
+type Query {
+  getMinapdb(participantid: Int!): Minapdb
+  listMinapdbs(filter: TableMinapdbFilterInput, limit: Int, nextToken: String): MinapdbConnection
+}
+
+type Subscription {
+  onCreateMinapdb(participantid: Int, sleepSessionEnd: Int, sleepSessionStart: Int): Minapdb @aws_subscribe(mutations : ["createMinapdb"])
+  onDeleteMinapdb(participantid: Int, sleepSessionEnd: Int, sleepSessionStart: Int): Minapdb @aws_subscribe(mutations : ["deleteMinapdb"])
+  onUpdateMinapdb(participantid: Int, sleepSessionEnd: Int, sleepSessionStart: Int): Minapdb @aws_subscribe(mutations : ["updateMinapdb"])
+}
+
+input CreateMinapdbInput {
+  participantid: Int!
+  sleepSessionEnd: Int
+  sleepSessionStart: Int
+}
+
+input DeleteMinapdbInput {
+  participantid: Int!
+}
+
+input TableBooleanFilterInput {
+  eq: Boolean
+  ne: Boolean
+}
+
+input TableFloatFilterInput {
+  between: [Float]
+  contains: Float
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+  notContains: Float
+}
+
+input TableIDFilterInput {
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+}
+
+input TableIntFilterInput {
+  between: [Int]
+  contains: Int
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+  notContains: Int
+}
+
+input TableMinapdbFilterInput {
+  participantid: TableIntFilterInput
+  sleepSessionEnd: TableIntFilterInput
+  sleepSessionStart: TableIntFilterInput
+}
+
+input TableStringFilterInput {
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+}
+
+input UpdateMinapdbInput {
+  participantid: Int!
+  sleepSessionEnd: Int
+  sleepSessionStart: Int
+}
