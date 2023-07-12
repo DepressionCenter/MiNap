@@ -1,15 +1,16 @@
 import { StyleSheet, View, Image } from 'react-native';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Surface, TextInput, Button, Text } from 'react-native-paper';
 import {API, graphqlOperation} from 'aws-amplify';
 import {createMinapdb} from '../src/graphql/mutations';
 import { listMinapdbs, getMinapdb } from '../src/graphql/queries';
+import { AuthContext } from '../auth-context';
 
 
 export default function LoginScreen ({ navigation }) {
     const [participantid, setParticipantid] = useState({ value: '', error: '' });
     const [studyid, setStudyid] = useState({ value: '', error: '' });
-  
+    const auth = useContext(AuthContext)
     async function _onLoginPressed () {
         console.log(participantid)
         console.log(studyid)
@@ -53,6 +54,7 @@ export default function LoginScreen ({ navigation }) {
             console.log('error creating entry:', err);
             return;
         }
+        auth.login(participantid.value, studyid.value);
         navigation.navigate('AfterInitScreen');
     }
   

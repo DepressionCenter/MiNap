@@ -1,6 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { useContext } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from 'minap/screens/home.js'
@@ -9,6 +10,8 @@ import LoginScreen from './screens/login.js';
 
 import { Amplify } from 'aws-amplify';
 import awsExports from './src/aws-exports';
+import { SafeAreaView } from 'react-native';
+import AuthProvider, { AuthContext } from './auth-context.js';
 Amplify.configure(awsExports);
 
 const LoginStack = createNativeStackNavigator();
@@ -99,16 +102,27 @@ const BottomNav = () => {
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+const InitScreen = () => {
   return (
-    <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
         headerShown: false
-    }}>
+      }}>
         <Stack.Screen name = "Login" component={LoginStackScreen}/>
         <Stack.Screen name = 'AfterInitScreen' component={BottomNav}/>
       </Stack.Navigator>
-    </NavigationContainer>
+  );
+};
+
+export default function App() {
+  const auth = useContext(AuthContext)
+  console.log(auth)
+  return (
+      <AuthProvider>
+        <NavigationContainer>
+          {!auth.isAuthenticated && <InitScreen/>}
+          {auth.isAuthenticated && <BottomNav/>}
+        </NavigationContainer>
+      </AuthProvider>
   );
 }
