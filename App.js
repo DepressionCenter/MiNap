@@ -5,11 +5,26 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from 'minap/screens/home.js'
 import ProfileScreen from 'minap/screens/settings.js'
+import LoginScreen from './screens/login.js';
 
-import Amplify from 'aws-amplify';
-import aws_config from "./src/aws-exports";
+// import Amplify from 'aws-amplify';
+// import aws_config from "./src/aws-exports";
 
-Amplify.configure(aws_config);
+// Amplify.configure(aws_config);
+
+const LoginStack = createNativeStackNavigator();
+
+function LoginStackScreen() {
+  return (
+    <LoginStack.Navigator
+    screenOptions={{
+      headerShown: false
+  }}>
+      <LoginStack.Screen name="LoginScreen" component={LoginScreen} />
+    </LoginStack.Navigator>
+  );
+}
+
 const HomeStack = createNativeStackNavigator();
 
 function HomeStackScreen() {
@@ -31,30 +46,9 @@ function ProfileStackScreen() {
 }
 
 const Tab = createMaterialBottomTabNavigator();
-
-export default function App() {
-  var mysql = require('mysql');
-
-  var connection = mysql.createConnection({
-    host     : process.env.RDS_HOSTNAME,
-    user     : process.env.RDS_USERNAME,
-    password : process.env.RDS_PASSWORD,
-    port     : process.env.RDS_PORT
-  });
-
-  connection.connect(function(err) {
-    if (err) {
-      console.error('Database connection failed: ' + err.stack);
-      return;
-    }
-  
-    console.log('Connected to database.');
-  });
-  
-  connection.end();
-
+const BottomNav = () => {
   return (
-    <NavigationContainer>
+    <>
       <Tab.Navigator 
         initialRouteName="App"
         activeColor="#6b3acf"
@@ -100,6 +94,22 @@ export default function App() {
           <Tab.Screen name="Main" component={HomeStackScreen}/>
           <Tab.Screen name="Profile" component={ProfileStackScreen}/>
       </Tab.Navigator>
+    </>
+  )
+}
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+        headerShown: false
+    }}>
+        <Stack.Screen name = "Login" component={LoginStackScreen}/>
+        <Stack.Screen name = 'AfterInitScreen' component={BottomNav}/>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
