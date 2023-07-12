@@ -1,17 +1,60 @@
 import { StyleSheet, View, Image } from 'react-native';
 import React, { useState } from 'react';
-import { Surface, TextInput, Button } from 'react-native-paper';
+import { Surface, TextInput, Button, Text } from 'react-native-paper';
+import {API, graphqlOperation} from 'aws-amplify';
+import {createMinapdb} from '../src/graphql/mutations';
+import { listMinapdbs, getMinapdb } from '../src/graphql/queries';
 
 
 export default function LoginScreen ({ navigation }) {
     const [participantid, setParticipantid] = useState({ value: '', error: '' });
     const [studyid, setStudyid] = useState({ value: '', error: '' });
   
-    const _onLoginPressed = () => {
-      console.log(participantid)
-      console.log(studyid)
-      navigation.navigate('AfterInitScreen');
-    };
+    async function _onLoginPressed () {
+        console.log(participantid)
+        console.log(studyid)
+    //   try 
+    //   {
+    //     if (!participantid.value || !studyid.value) return;
+    //     const createEntry = {
+    //         participantid: parseInt(participantid.value),
+    //         studyid: parseInt(studyid.value),
+            // sleepSessionStart: 0,
+            // sleepSessionEnd: 0,
+            // remarks: ""
+    //     };
+    //     await API.graphql(graphqlOperation(createMinapdb, {input: createEntry}));
+    //   }
+    //   catch (err) {
+    //     console.log('error creating entry:', err);
+    //     return;
+    //   }
+        try 
+        {
+            if (!participantid.value || !studyid.value) {
+                setParticipantid({ value: participantid.value, error: 'participantid and study id can not be empty' });
+                setStudyid({ value: studyid.value, error: 'participantid and study id can not be empty' });
+                return;
+            }
+            const userData = await API.graphql(graphqlOperation(getMinapdb, {participantid: parseInt(participantid.value)}));
+            // console.log(userData)
+            if (userData.data.getMinapdb == null) {
+                console.log('participantid does not match');
+                setParticipantid({ value: participantid.value, error: 'participantid does not exist' });
+                return;
+            }
+            if (userData.data.getMinapdb.studyid != parseInt(studyid.value)) {
+                console.log('studyid does not match');
+                setStudyid({ value: studyid.value, error: 'studyid does not match' });
+                return;
+            }
+        }
+        catch (err) {
+            console.log('error creating entry:', err);
+            return;
+        }
+        navigation.navigate('AfterInitScreen');
+    }
   
     return (
         <View style={styles.container}>
@@ -28,6 +71,7 @@ export default function LoginScreen ({ navigation }) {
                 errorText={participantid.error}
                 keyboardType="numeric"
                 />
+                {participantid.error ? <Text variant='labelSmall'>{participantid.error}</Text> : null}
         
                 <TextInput
                 label="StudyID"
@@ -38,6 +82,7 @@ export default function LoginScreen ({ navigation }) {
                 errorText={studyid.error}
                 keyboardType="numeric"
                 />
+                {studyid.error ? <Text variant='labelSmall'>{studyid.error}</Text> : null}
         
                 <Button mode="contained" onPress={_onLoginPressed}>
                 Login

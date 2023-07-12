@@ -7,10 +7,9 @@ import HomeScreen from 'minap/screens/home.js'
 import ProfileScreen from 'minap/screens/settings.js'
 import LoginScreen from './screens/login.js';
 
-// import Amplify from 'aws-amplify';
-// import aws_config from "./src/aws-exports";
-
-// Amplify.configure(aws_config);
+import { Amplify } from 'aws-amplify';
+import awsExports from './src/aws-exports';
+Amplify.configure(awsExports);
 
 const LoginStack = createNativeStackNavigator();
 
