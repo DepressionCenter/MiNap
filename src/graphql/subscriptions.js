@@ -15,6 +15,8 @@ export const onCreateMinapdb = /* GraphQL */ `
       participantid
       sleepSessionStart
       sleepSessionEnd
+      studyid
+      remarks
       __typename
     }
   }
@@ -33,6 +35,8 @@ export const onUpdateMinapdb = /* GraphQL */ `
       participantid
       sleepSessionStart
       sleepSessionEnd
+      studyid
+      remarks
       __typename
     }
   }
@@ -51,6 +55,8 @@ export const onDeleteMinapdb = /* GraphQL */ `
       participantid
       sleepSessionStart
       sleepSessionEnd
+      studyid
+      remarks
       __typename
     }
   }

@@ -6,8 +6,10 @@
 
 type Minapdb {
   participantid: Int!
+  remarks: String
   sleepSessionEnd: Int
   sleepSessionStart: Int
+  studyid: Int
 }
 
 type MinapdbConnection {
@@ -34,8 +36,7 @@ type Subscription {
 
 input CreateMinapdbInput {
   participantid: Int!
-  sleepSessionEnd: Int
-  sleepSessionStart: Int
+  studyid: Int
 }
 
 input DeleteMinapdbInput {
@@ -104,7 +105,7 @@ input TableStringFilterInput {
 }
 
 input UpdateMinapdbInput {
-  participantid: Int!
+  remarks: String
   sleepSessionEnd: Int
   sleepSessionStart: Int
 }

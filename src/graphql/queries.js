@@ -7,6 +7,8 @@ export const getMinapdb = /* GraphQL */ `
       participantid
       sleepSessionStart
       sleepSessionEnd
+      studyid
+      remarks
       __typename
     }
   }
@@ -22,6 +24,8 @@ export const listMinapdbs = /* GraphQL */ `
         participantid
         sleepSessionStart
         sleepSessionEnd
+        studyid
+        remarks
         __typename
       }
       nextToken
