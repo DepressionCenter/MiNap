@@ -1,0 +1,693 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6489635E2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6489635D2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		648963632A4F57DA00C7FA5D /* MiNap_Sleepwatch_frontApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648963622A4F57DA00C7FA5D /* MiNap_Sleepwatch_frontApp.swift */; };
+		648963652A4F57DA00C7FA5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648963642A4F57DA00C7FA5D /* ContentView.swift */; };
+		648963672A4F57DC00C7FA5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 648963662A4F57DC00C7FA5D /* Assets.xcassets */; };
+		6489636A2A4F57DC00C7FA5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 648963692A4F57DC00C7FA5D /* Preview Assets.xcassets */; };
+		648963742A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648963732A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppTests.swift */; };
+		6489637E2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6489637D2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITests.swift */; };
+		648963802A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6489637F2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6489635F2A4F57DA00C7FA5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 648963512A4F57DA00C7FA5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6489635C2A4F57DA00C7FA5D;
+			remoteInfo = "MiNap-Sleepwatch-front Watch App";
+		};
+		648963702A4F57DC00C7FA5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 648963512A4F57DA00C7FA5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6489635C2A4F57DA00C7FA5D;
+			remoteInfo = "MiNap-Sleepwatch-front Watch App";
+		};
+		6489637A2A4F57DC00C7FA5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 648963512A4F57DA00C7FA5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6489635C2A4F57DA00C7FA5D;
+			remoteInfo = "MiNap-Sleepwatch-front Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		648963862A4F57DC00C7FA5D /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				6489635E2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		648963572A4F57DA00C7FA5D /* MiNap-Sleepwatch-front.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MiNap-Sleepwatch-front.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6489635D2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MiNap-Sleepwatch-front Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		648963622A4F57DA00C7FA5D /* MiNap_Sleepwatch_frontApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiNap_Sleepwatch_frontApp.swift; sourceTree = "<group>"; };
+		648963642A4F57DA00C7FA5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		648963662A4F57DC00C7FA5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		648963692A4F57DC00C7FA5D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6489636F2A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MiNap-Sleepwatch-front Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		648963732A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiNap_Sleepwatch_front_Watch_AppTests.swift; sourceTree = "<group>"; };
+		648963792A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MiNap-Sleepwatch-front Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6489637D2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiNap_Sleepwatch_front_Watch_AppUITests.swift; sourceTree = "<group>"; };
+		6489637F2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6489635A2A4F57DA00C7FA5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6489636C2A4F57DC00C7FA5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		648963762A4F57DC00C7FA5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		648963502A4F57DA00C7FA5D = {
+			isa = PBXGroup;
+			children = (
+				648963612A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App */,
+				648963722A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppTests */,
+				6489637C2A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppUITests */,
+				648963582A4F57DA00C7FA5D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		648963582A4F57DA00C7FA5D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				648963572A4F57DA00C7FA5D /* MiNap-Sleepwatch-front.app */,
+				6489635D2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App.app */,
+				6489636F2A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppTests.xctest */,
+				648963792A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		648963612A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				648963622A4F57DA00C7FA5D /* MiNap_Sleepwatch_frontApp.swift */,
+				648963642A4F57DA00C7FA5D /* ContentView.swift */,
+				648963662A4F57DC00C7FA5D /* Assets.xcassets */,
+				648963682A4F57DC00C7FA5D /* Preview Content */,
+			);
+			path = "MiNap-Sleepwatch-front Watch App";
+			sourceTree = "<group>";
+		};
+		648963682A4F57DC00C7FA5D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				648963692A4F57DC00C7FA5D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		648963722A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				648963732A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppTests.swift */,
+			);
+			path = "MiNap-Sleepwatch-front Watch AppTests";
+			sourceTree = "<group>";
+		};
+		6489637C2A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6489637D2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITests.swift */,
+				6489637F2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift */,
+			);
+			path = "MiNap-Sleepwatch-front Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		648963562A4F57DA00C7FA5D /* MiNap-Sleepwatch-front */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 648963872A4F57DC00C7FA5D /* Build configuration list for PBXNativeTarget "MiNap-Sleepwatch-front" */;
+			buildPhases = (
+				648963552A4F57DA00C7FA5D /* Resources */,
+				648963862A4F57DC00C7FA5D /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				648963602A4F57DA00C7FA5D /* PBXTargetDependency */,
+			);
+			name = "MiNap-Sleepwatch-front";
+			productName = "MiNap-Sleepwatch-front";
+			productReference = 648963572A4F57DA00C7FA5D /* MiNap-Sleepwatch-front.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		6489635C2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 648963832A4F57DC00C7FA5D /* Build configuration list for PBXNativeTarget "MiNap-Sleepwatch-front Watch App" */;
+			buildPhases = (
+				648963592A4F57DA00C7FA5D /* Sources */,
+				6489635A2A4F57DA00C7FA5D /* Frameworks */,
+				6489635B2A4F57DA00C7FA5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MiNap-Sleepwatch-front Watch App";
+			productName = "MiNap-Sleepwatch-front Watch App";
+			productReference = 6489635D2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6489636E2A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6489638A2A4F57DC00C7FA5D /* Build configuration list for PBXNativeTarget "MiNap-Sleepwatch-front Watch AppTests" */;
+			buildPhases = (
+				6489636B2A4F57DC00C7FA5D /* Sources */,
+				6489636C2A4F57DC00C7FA5D /* Frameworks */,
+				6489636D2A4F57DC00C7FA5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				648963712A4F57DC00C7FA5D /* PBXTargetDependency */,
+			);
+			name = "MiNap-Sleepwatch-front Watch AppTests";
+			productName = "MiNap-Sleepwatch-front Watch AppTests";
+			productReference = 6489636F2A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		648963782A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6489638D2A4F57DC00C7FA5D /* Build configuration list for PBXNativeTarget "MiNap-Sleepwatch-front Watch AppUITests" */;
+			buildPhases = (
+				648963752A4F57DC00C7FA5D /* Sources */,
+				648963762A4F57DC00C7FA5D /* Frameworks */,
+				648963772A4F57DC00C7FA5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6489637B2A4F57DC00C7FA5D /* PBXTargetDependency */,
+			);
+			name = "MiNap-Sleepwatch-front Watch AppUITests";
+			productName = "MiNap-Sleepwatch-front Watch AppUITests";
+			productReference = 648963792A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		648963512A4F57DA00C7FA5D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					648963562A4F57DA00C7FA5D = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					6489635C2A4F57DA00C7FA5D = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					6489636E2A4F57DC00C7FA5D = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 6489635C2A4F57DA00C7FA5D;
+					};
+					648963782A4F57DC00C7FA5D = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 6489635C2A4F57DA00C7FA5D;
+					};
+				};
+			};
+			buildConfigurationList = 648963542A4F57DA00C7FA5D /* Build configuration list for PBXProject "MiNap-Sleepwatch-front" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 648963502A4F57DA00C7FA5D;
+			productRefGroup = 648963582A4F57DA00C7FA5D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				648963562A4F57DA00C7FA5D /* MiNap-Sleepwatch-front */,
+				6489635C2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App */,
+				6489636E2A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppTests */,
+				648963782A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		648963552A4F57DA00C7FA5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6489635B2A4F57DA00C7FA5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6489636A2A4F57DC00C7FA5D /* Preview Assets.xcassets in Resources */,
+				648963672A4F57DC00C7FA5D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6489636D2A4F57DC00C7FA5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		648963772A4F57DC00C7FA5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		648963592A4F57DA00C7FA5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				648963652A4F57DA00C7FA5D /* ContentView.swift in Sources */,
+				648963632A4F57DA00C7FA5D /* MiNap_Sleepwatch_frontApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6489636B2A4F57DC00C7FA5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				648963742A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		648963752A4F57DC00C7FA5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				648963802A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift in Sources */,
+				6489637E2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		648963602A4F57DA00C7FA5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6489635C2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App */;
+			targetProxy = 6489635F2A4F57DA00C7FA5D /* PBXContainerItemProxy */;
+		};
+		648963712A4F57DC00C7FA5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6489635C2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App */;
+			targetProxy = 648963702A4F57DC00C7FA5D /* PBXContainerItemProxy */;
+		};
+		6489637B2A4F57DC00C7FA5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6489635C2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App */;
+			targetProxy = 6489637A2A4F57DC00C7FA5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		648963812A4F57DC00C7FA5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		648963822A4F57DC00C7FA5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		648963842A4F57DC00C7FA5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MiNap-Sleepwatch-front Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "MiNap-Sleepwatch-front";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Umich.MiNap-Sleepwatch-front.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		648963852A4F57DC00C7FA5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MiNap-Sleepwatch-front Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "MiNap-Sleepwatch-front";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Umich.MiNap-Sleepwatch-front.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+		648963882A4F57DC00C7FA5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_KEY_CFBundleDisplayName = "MiNap-Sleepwatch-front";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Umich.MiNap-Sleepwatch-front";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator watchos watchsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,4";
+			};
+			name = Debug;
+		};
+		648963892A4F57DC00C7FA5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_KEY_CFBundleDisplayName = "MiNap-Sleepwatch-front";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Umich.MiNap-Sleepwatch-front";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator watchos watchsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,4";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6489638B2A4F57DC00C7FA5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Umich.MiNap-Sleepwatch-front-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiNap-Sleepwatch-front Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MiNap-Sleepwatch-front Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		6489638C2A4F57DC00C7FA5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Umich.MiNap-Sleepwatch-front-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiNap-Sleepwatch-front Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MiNap-Sleepwatch-front Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+		6489638E2A4F57DC00C7FA5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Umich.MiNap-Sleepwatch-front-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "MiNap-Sleepwatch-front Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		6489638F2A4F57DC00C7FA5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Umich.MiNap-Sleepwatch-front-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "MiNap-Sleepwatch-front Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		648963542A4F57DA00C7FA5D /* Build configuration list for PBXProject "MiNap-Sleepwatch-front" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				648963812A4F57DC00C7FA5D /* Debug */,
+				648963822A4F57DC00C7FA5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		648963832A4F57DC00C7FA5D /* Build configuration list for PBXNativeTarget "MiNap-Sleepwatch-front Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				648963842A4F57DC00C7FA5D /* Debug */,
+				648963852A4F57DC00C7FA5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		648963872A4F57DC00C7FA5D /* Build configuration list for PBXNativeTarget "MiNap-Sleepwatch-front" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				648963882A4F57DC00C7FA5D /* Debug */,
+				648963892A4F57DC00C7FA5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6489638A2A4F57DC00C7FA5D /* Build configuration list for PBXNativeTarget "MiNap-Sleepwatch-front Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6489638B2A4F57DC00C7FA5D /* Debug */,
+				6489638C2A4F57DC00C7FA5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6489638D2A4F57DC00C7FA5D /* Build configuration list for PBXNativeTarget "MiNap-Sleepwatch-front Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6489638E2A4F57DC00C7FA5D /* Debug */,
+				6489638F2A4F57DC00C7FA5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 648963512A4F57DA00C7FA5D /* Project object */;
+}
