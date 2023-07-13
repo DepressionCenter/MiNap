@@ -6,19 +6,42 @@
 //
 
 import SwiftUI
+import WatchKit
+import Foundation
 
 struct ContentView: View {
+    @State var auth = false
     @State var showSleepScreen = true
     
     var body: some View {
         VStack {
-            if showSleepScreen {
-                SleepScreen(showSleepScreen: $showSleepScreen)
-                
-            } else {
-                WakeupScreen(showSleepScreen: $showSleepScreen)
-                
+            if auth {
+
+                if showSleepScreen {
+                    SleepScreen(showSleepScreen: $showSleepScreen)
+                    
+                } else {
+                    WakeupScreen(showSleepScreen: $showSleepScreen)
+                    
+                }
+            
+            }else{
+                AuthScreen()
             }
+        }
+    }
+}
+
+struct AuthScreen: View {
+    
+    var body: some View {
+        VStack {
+            Image(systemName: "person.fill")
+                .font(.system(size: 60))
+            
+            Text("Please Authenticate on Mobile App")
+                .font(.title3)
+            
         }
     }
 }
@@ -44,10 +67,9 @@ struct SleepScreen: View {
                 showRecordedMessage = true
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    withAnimation {
+                   
                         showSleepScreen = false
-                        WKInterfaceController.reloadRootPageControllers(withNames: ["WakeupScreen"], contexts: nil, orientation: .vertical, pageIndex: 0)
-                    }
+                        
                 }
             }
             
@@ -81,11 +103,13 @@ struct WakeupScreen: View {
                 showRecordedMessage = true
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    withAnimation {
+                   
                         showSleepScreen = true
-                        WKInterfaceController.reloadRootPageControllers(withNames: ["SleepScreen"], contexts: nil, orientation: .vertical, pageIndex: 0)
-                    }
+                        
                 }
+               
+                
+                
             }
             
             if showRecordedMessage {
