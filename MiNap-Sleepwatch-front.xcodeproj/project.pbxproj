@@ -16,6 +16,7 @@
 		6489637E2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6489637D2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITests.swift */; };
 		648963802A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6489637F2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift */; };
 		9C4AEF7F2A60B7B300B8D4DF /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 9C4AEF7E2A60B7B300B8D4DF /* AWSAPIPlugin */; };
+		9C4AEF892A61B06B00B8D4DF /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 9C4AEF882A61B06B00B8D4DF /* Amplify */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C4AEF7F2A60B7B300B8D4DF /* AWSAPIPlugin in Frameworks */,
+				9C4AEF892A61B06B00B8D4DF /* Amplify in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +105,7 @@
 				648963722A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppTests */,
 				6489637C2A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppUITests */,
 				648963582A4F57DA00C7FA5D /* Products */,
+				9C4AEF872A61B06B00B8D4DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +156,13 @@
 			path = "MiNap-Sleepwatch-front Watch AppUITests";
 			sourceTree = "<group>";
 		};
+		9C4AEF872A61B06B00B8D4DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,6 +198,7 @@
 			name = "MiNap-Sleepwatch-front Watch App";
 			packageProductDependencies = (
 				9C4AEF7E2A60B7B300B8D4DF /* AWSAPIPlugin */,
+				9C4AEF882A61B06B00B8D4DF /* Amplify */,
 			);
 			productName = "MiNap-Sleepwatch-front Watch App";
 			productReference = 6489635D2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App.app */;
@@ -713,6 +724,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9C4AEF7D2A60B7B300B8D4DF /* XCRemoteSwiftPackageReference "amplify-swift" */;
 			productName = AWSAPIPlugin;
+		};
+		9C4AEF882A61B06B00B8D4DF /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C4AEF7D2A60B7B300B8D4DF /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = Amplify;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

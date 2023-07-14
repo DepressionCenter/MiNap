@@ -8,6 +8,7 @@
 import SwiftUI
 import WatchKit
 import Foundation
+import Amplify
 
 struct ContentView: View {
     @State var auth = false
@@ -51,6 +52,7 @@ struct AuthScreen: View {
                 .padding(.top, 15)
             
             Button(action: {
+                
                 print("participantid: \(participantid)")
                 print("studyid: \(studyid)")
             }) {
@@ -66,6 +68,30 @@ struct AuthScreen: View {
         }
     }
 }
+
+func login(participantid: String, studyid: String) async {
+    do {
+        let result = try await Amplify.API.query(
+            request: .get(Minapdb.self, byId: participantid)
+        )
+
+        switch result {
+        case .success(let todo):
+            guard let todo = todo else {
+                print("Could not find todo")
+                return
+            }
+            print("Successfully retrieved todo: \(todo)")
+        case .failure(let error):
+            print("Got failed result with \(error.errorDescription)")
+        }
+    } catch let error as APIError {
+        print("Failed to query todo: ", error)
+    } catch {
+        print("Unexpected error: \(error)")
+    }
+}
+
 
 struct SleepScreen: View {
     @Binding var showSleepScreen: Bool
