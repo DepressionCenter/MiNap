@@ -1,0 +1,58 @@
+# this is an auto generated file. This will be overwritten
+
+subscription OnCreateMinapdb(
+  $participantid: Int
+  $sleepSessionStart: Int
+  $sleepSessionEnd: Int
+) {
+  onCreateMinapdb(
+    participantid: $participantid
+    sleepSessionStart: $sleepSessionStart
+    sleepSessionEnd: $sleepSessionEnd
+  ) {
+    participantid
+    sleepSessionStart
+    sleepSessionEnd
+    studyid
+    remarks
+    __typename
+  }
+}
+
+subscription OnUpdateMinapdb(
+  $participantid: Int
+  $sleepSessionStart: Int
+  $sleepSessionEnd: Int
+) {
+  onUpdateMinapdb(
+    participantid: $participantid
+    sleepSessionStart: $sleepSessionStart
+    sleepSessionEnd: $sleepSessionEnd
+  ) {
+    participantid
+    sleepSessionStart
+    sleepSessionEnd
+    studyid
+    remarks
+    __typename
+  }
+}
+
+subscription OnDeleteMinapdb(
+  $participantid: Int
+  $sleepSessionStart: Int
+  $sleepSessionEnd: Int
+) {
+  onDeleteMinapdb(
+    participantid: $participantid
+    sleepSessionStart: $sleepSessionStart
+    sleepSessionEnd: $sleepSessionEnd
+  ) {
+    participantid
+    sleepSessionStart
+    sleepSessionEnd
+    studyid
+    remarks
+    __typename
+  }
+}

@@ -15,6 +15,7 @@
 		648963742A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648963732A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppTests.swift */; };
 		6489637E2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6489637D2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITests.swift */; };
 		648963802A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6489637F2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift */; };
+		9C4AEF7F2A60B7B300B8D4DF /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 9C4AEF7E2A60B7B300B8D4DF /* AWSAPIPlugin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C4AEF7F2A60B7B300B8D4DF /* AWSAPIPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +186,9 @@
 			dependencies = (
 			);
 			name = "MiNap-Sleepwatch-front Watch App";
+			packageProductDependencies = (
+				9C4AEF7E2A60B7B300B8D4DF /* AWSAPIPlugin */,
+			);
 			productName = "MiNap-Sleepwatch-front Watch App";
 			productReference = 6489635D2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -259,6 +264,9 @@
 				Base,
 			);
 			mainGroup = 648963502A4F57DA00C7FA5D;
+			packageReferences = (
+				9C4AEF7D2A60B7B300B8D4DF /* XCRemoteSwiftPackageReference "amplify-swift" */,
+			);
 			productRefGroup = 648963582A4F57DA00C7FA5D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -530,7 +538,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Umich.MiNap-Sleepwatch-front";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = watchos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator watchos watchsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -549,7 +557,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Umich.MiNap-Sleepwatch-front";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = watchos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator watchos watchsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -688,6 +696,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C4AEF7D2A60B7B300B8D4DF /* XCRemoteSwiftPackageReference "amplify-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C4AEF7E2A60B7B300B8D4DF /* AWSAPIPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C4AEF7D2A60B7B300B8D4DF /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSAPIPlugin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 648963512A4F57DA00C7FA5D /* Project object */;
 }

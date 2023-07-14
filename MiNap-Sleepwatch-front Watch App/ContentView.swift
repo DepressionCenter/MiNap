@@ -33,15 +33,36 @@ struct ContentView: View {
 }
 
 struct AuthScreen: View {
+    @State private var participantid: String = ""
+    @State private var studyid: String = ""
     
     var body: some View {
         VStack {
-            Image(systemName: "person.fill")
-                .font(.system(size: 60))
-            
-            Text("Please Authenticate on Mobile App")
+            Text("Login")
                 .font(.title3)
             
+            TextField("ParticipantID", text: $participantid)
+                .textContentType(.oneTimeCode)
+                .padding(.horizontal, 15)
+            
+            TextField("StudyID", text: $studyid)
+                .textContentType(.oneTimeCode)
+                .padding(.horizontal, 15)
+                .padding(.top, 15)
+            
+            Button(action: {
+                print("participantid: \(participantid)")
+                print("studyid: \(studyid)")
+            }) {
+                Text("Sign In")
+                    .foregroundColor(.white)
+                    .padding(.vertical, 12)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding(.horizontal, 15)
+            .padding(.top, 20)
         }
     }
 }

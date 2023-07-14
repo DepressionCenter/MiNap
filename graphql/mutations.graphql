@@ -1,0 +1,34 @@
+# this is an auto generated file. This will be overwritten
+
+mutation CreateMinapdb($input: CreateMinapdbInput!) {
+  createMinapdb(input: $input) {
+    participantid
+    sleepSessionStart
+    sleepSessionEnd
+    studyid
+    remarks
+    __typename
+  }
+}
+
+mutation UpdateMinapdb($input: UpdateMinapdbInput!) {
+  updateMinapdb(input: $input) {
+    participantid
+    sleepSessionStart
+    sleepSessionEnd
+    studyid
+    remarks
+    __typename
+  }
+}
+
+mutation DeleteMinapdb($input: DeleteMinapdbInput!) {
+  deleteMinapdb(input: $input) {
+    participantid
+    sleepSessionStart
+    sleepSessionEnd
+    studyid
+    remarks
+    __typename
+  }
+}

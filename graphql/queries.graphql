@@ -1,0 +1,31 @@
+# this is an auto generated file. This will be overwritten
+
+query GetMinapdb($participantid: Int!) {
+  getMinapdb(participantid: $participantid) {
+    participantid
+    sleepSessionStart
+    sleepSessionEnd
+    studyid
+    remarks
+    __typename
+  }
+}
+
+query ListMinapdbs(
+  $filter: TableMinapdbFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listMinapdbs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      participantid
+      sleepSessionStart
+      sleepSessionEnd
+      studyid
+      remarks
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
