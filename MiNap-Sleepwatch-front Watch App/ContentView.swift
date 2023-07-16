@@ -10,13 +10,49 @@ import WatchKit
 import Foundation
 import Amplify
 
+class AuthenticationContext: ObservableObject {
+    static let shared = AuthenticationContext()
+
+    @Published private(set) var participantID: String? {
+        didSet {
+            // Add logic if participantID changes
+        }
+    }
+
+    @Published private(set) var studyID: String? {
+        didSet {
+            // Add logic if studyID changes
+        }
+    }
+
+    private init() { }
+    
+    var isAuthenticated: Bool {
+        return participantID != nil && studyID != nil
+    }
+
+    func setParticipantID(_ id: String) {
+        participantID = id
+    }
+
+    func setStudyID(_ id: String) {
+        studyID = id
+    }
+    
+    func logout() {
+        participantID = nil
+        studyID = nil
+    }
+}
+
+
 struct ContentView: View {
-    @State var auth = false
+    @ObservedObject var authContext = AuthenticationContext.shared
     @State var showSleepScreen = true
     
     var body: some View {
         VStack {
-            if auth {
+            if authContext.isAuthenticated {
                 
                 if showSleepScreen {
                     SleepScreen(showSleepScreen: $showSleepScreen)
@@ -34,9 +70,7 @@ struct ContentView: View {
     
     struct AuthScreen: View {
         @State public var participantid: String = ""
-        @State public var processedparticipantid: Int = 0
         @State public var studyid: String = ""
-        @State public var processedstudyid: Int = 0
         
         var body: some View {
             VStack {
@@ -78,7 +112,7 @@ struct ContentView: View {
             do {
                 print("participantid: \(participantid)")
                 print("studyid: \(studyid)")
-                var entry = MinapDBEntry(id:participantid,
+                let entry = MinapDBEntry(id:participantid,
                                          studyid: studyid,
                                          remarks: "")
                 let result = try await Amplify.API.mutate(request: .create(entry))
@@ -113,6 +147,11 @@ struct ContentView: View {
                     if (result.studyid == studyid)
                     {
                         print("Congratulations! You are authenticated!")
+                        AuthenticationContext.shared.setStudyID(studyid)
+                        AuthenticationContext.shared.setParticipantID(participantid)
+                        print(AuthenticationContext.shared.studyID)
+                        print(AuthenticationContext.shared.participantID)
+                        print(AuthenticationContext.shared.isAuthenticated)
                     }
                     else {
                         print("studyid does not match.")
