@@ -59,65 +59,6 @@ class AuthenticationContext: ObservableObject {
     }
 }
 
-// implement fault tolerance
-class DataStore: ObservableObject{
-    static let shared = DataStore()
-    
-    @Published private var failedData: [(Temporal.DateTime, Temporal.DateTime)] = []
-    @ObservedObject var observer = AuthenticationContext.shared
-    
-    private init() {}
-    
-    func storeDataIfUploadFails(startTime: Temporal.DateTime, endTime: Temporal.DateTime) {
-        failedData.append((startTime, endTime))
-    }
-    
-    func retryFailedUploads() async {
-        // This function will retry the upload for all failed data
-        for (index, data) in failedData.enumerated().reversed() {
-            do {
-                guard let participantID = observer.participantID else {
-                    throw OptionalError.nilValue(description: "Participant ID is nil")
-                }
-                
-                guard let studyID = observer.studyID else {
-                    throw OptionalError.nilValue(description: "Study ID is nil")
-                }
-                
-                await makeAPICall(participantId: participantID, studyId: studyID, startTime: data.0, endTime: data.1)
-                // If upload is successful, remove the data from `failedData`
-                failedData.remove(at: index)
-            } catch {
-                print("Retry failed for data at index \(index)")
-            }
-        }
-    }
-    
-    private func makeAPICall(participantId: String, studyId: String, startTime: Temporal.DateTime, endTime: Temporal.DateTime) async {
-        do {
-            let entry = MinapDBEntry(
-                sleepSessionStart: startTime,
-                sleepSessionEnd: endTime,
-                studyid: studyId,
-                participantid:participantId
-            )
-            let result = try await Amplify.API.mutate(request: .create(entry))
-            switch result {
-            case .success(let result):
-                print("Successfully created entry: \(result)")
-                return
-            case .failure(let error):
-                print("Got failed result with \(error.errorDescription)")
-                throw error
-            }
-        } catch let error as APIError {
-            print("Failed to query todo: ", error)
-        } catch {
-            print("Unexpected error: \(error)")
-        }
-    }
-}
-
 
 // throws error if unwrapping fails
 enum OptionalError: LocalizedError {
@@ -173,7 +114,7 @@ enum OptionalError: LocalizedError {
                     
                     Button(action: {
                         Task {
-                            await login(participantid: participantid, studyid: studyid)
+                            await persistentlogin(participantid: participantid, studyid: studyid)
                         }
                     }) {
                         Text("Sign In")
@@ -242,6 +183,31 @@ enum OptionalError: LocalizedError {
                     print("Unexpected error: \(error)")
                 }
             }
+        
+            func persistentlogin(participantid: String, studyid: String) async {
+                do {
+                    let entries = MinapDBEntry.keys
+                    let predicate = entries.participantid == participantid && entries.studyid == studyid
+                    let result = try await Amplify.DataStore.query(MinapDBEntry.self, where: predicate)
+                    print("Entries: \(result)")
+                    if (result.count > 0) {
+                        print("Congratulations! You are authenticated!")
+                        AuthenticationContext.shared.setParticipantID(participantid)
+                        AuthenticationContext.shared.setStudyID(studyid)
+                        print(AuthenticationContext.shared.participantID)
+                        print(AuthenticationContext.shared.studyID)
+                        print(AuthenticationContext.shared.isAuthenticated)
+                    }
+                    else {
+                        print("Could not find result")
+                        return
+                    }
+                } catch let error as DataStoreError {
+                    print("Error on query() for type Entry - \(error)")
+                } catch {
+                    print("Unexpected error \(error)")
+                }
+            }
         }
         
         
@@ -250,7 +216,6 @@ enum OptionalError: LocalizedError {
             @State private var animate = false
             @State private var showRecordedMessage = false
             @ObservedObject var authContext = AuthenticationContext.shared
-            @ObservedObject var tempstore = DataStore.shared
             
             var body: some View {
                 VStack {
@@ -267,11 +232,6 @@ enum OptionalError: LocalizedError {
                     {
                         print("button clicked")
                         authContext.startSession()
-                        
-                        //implement fault tolerance
-                        Task {
-                            await tempstore.retryFailedUploads()
-                        }
                         
                         // view start time
                         let formatter = ISO8601DateFormatter()
@@ -313,7 +273,6 @@ enum OptionalError: LocalizedError {
             @State private var animate = false
             @State private var showRecordedMessage = false
             @ObservedObject var authContext = AuthenticationContext.shared
-            @ObservedObject var tempstore = DataStore.shared
             
             var body: some View {
                 VStack {
@@ -340,10 +299,8 @@ enum OptionalError: LocalizedError {
                                     throw OptionalError.nilValue(description: "Session start time is nil")
                                 }
                                 
-                                await createSession(participantid: participantID, studyid: studyID, sleepSessionStart: sessionStartTime, sleepSessionEnd: Temporal.DateTime.now())
+                                await persistentcreateSession(participantid: participantID, studyid: studyID, sleepSessionStart: sessionStartTime, sleepSessionEnd: Temporal.DateTime.now())
                                 authContext.endSession()
-                                // retry uploading the data
-                                await tempstore.retryFailedUploads()
                             } catch {
                                 print("An error occurred: \(error)")
                                 authContext.endSession()
@@ -399,14 +356,38 @@ enum OptionalError: LocalizedError {
                         throw error
                     }
                 } catch let error as APIError {
-                    print("Failed to query todo: ", error)
-                    tempstore.storeDataIfUploadFails(startTime: sleepSessionStart, endTime: sleepSessionEnd)
+                    print("Failed to create session: ", error)
                 } catch {
                     print("Unexpected error: \(error)")
-                    tempstore.storeDataIfUploadFails(startTime: sleepSessionStart, endTime: sleepSessionEnd)
                 }
             }
-}
+            
+            func persistentcreateSession(participantid: String, studyid: String, sleepSessionStart: Temporal.DateTime, sleepSessionEnd: Temporal.DateTime) async {
+                do {
+                    // formatter that converts date obj to string for debugging purpose
+                    let formatter = ISO8601DateFormatter()
+                    formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+                    
+                    print("participantid: \(participantid)")
+                    print("studyid: \(studyid)")
+                    print(formatter.string(from: sleepSessionStart.foundationDate))
+                    print(formatter.string(from: sleepSessionEnd.foundationDate))
+                    
+                    let entry = MinapDBEntry(
+                        sleepSessionStart: sleepSessionStart,
+                        sleepSessionEnd: sleepSessionEnd,
+                        studyid: studyid,
+                        participantid:participantid
+                    )
+                    let result = try await Amplify.DataStore.save(entry)
+                    print(result)
+                } catch let error as DataStoreError {
+                    print("Error creating session - \(error)")
+                } catch {
+                    print("Unexpected error \(error)")
+                }
+            }
+        }
     
     
     struct ContentView_Previews: PreviewProvider {

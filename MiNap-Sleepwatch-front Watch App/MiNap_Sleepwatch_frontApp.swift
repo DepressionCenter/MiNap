@@ -8,11 +8,13 @@
 import SwiftUI
 import Amplify
 import AWSAPIPlugin
+import AWSDataStorePlugin
 
 
 func configureAmplify() {
         do {
             try Amplify.add(plugin: AWSAPIPlugin(modelRegistration: AmplifyModels()))
+            try Amplify.add(plugin: AWSDataStorePlugin(modelRegistration: AmplifyModels()))
             try Amplify.configure()
             print("Successfully initialized Amplify")
         } catch {
