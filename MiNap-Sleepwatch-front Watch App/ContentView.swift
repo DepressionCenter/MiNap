@@ -217,7 +217,7 @@ enum OptionalError: LocalizedError {
                     let entries = MinapDBEntry.keys
                     let predicate = entries.participantid == participantid && entries.studyid == studyid
                     let result = try await Amplify.API.query(
-                        request: .list(MinapDBEntry.self, where: predicate, limit: 1)
+                        request: .list(MinapDBEntry.self, where: predicate, limit: 5)
                     )
                     switch result {
                     case .success(let result):
