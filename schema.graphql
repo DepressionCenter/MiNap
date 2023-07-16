@@ -4,63 +4,99 @@
   subscription: Subscription
 }
 
-type Minapdb {
-  participantid: Int!
+type MinapDBEntry @aws_api_key @aws_iam {
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  _version: Int!
+  createdAt: AWSDateTime!
+  id: ID!
+  participantid: String
   remarks: String
-  sleepSessionEnd: Int
-  sleepSessionStart: Int
-  studyid: Int
+  sleepSessionEnd: AWSDateTime
+  sleepSessionStart: AWSDateTime
+  studyid: String
+  updatedAt: AWSDateTime!
 }
 
-type MinapdbConnection {
-  items: [Minapdb]
+type ModelMinapDBEntryConnection @aws_api_key @aws_iam {
+  items: [MinapDBEntry]!
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 type Mutation {
-  createMinapdb(input: CreateMinapdbInput!): Minapdb
-  deleteMinapdb(input: DeleteMinapdbInput!): Minapdb
-  updateMinapdb(input: UpdateMinapdbInput!): Minapdb
+  createMinapDBEntry(condition: ModelMinapDBEntryConditionInput, input: CreateMinapDBEntryInput!): MinapDBEntry @aws_api_key @aws_iam
+  deleteMinapDBEntry(condition: ModelMinapDBEntryConditionInput, input: DeleteMinapDBEntryInput!): MinapDBEntry @aws_api_key @aws_iam
+  updateMinapDBEntry(condition: ModelMinapDBEntryConditionInput, input: UpdateMinapDBEntryInput!): MinapDBEntry @aws_api_key @aws_iam
 }
 
 type Query {
-  getMinapdb(participantid: Int!): Minapdb
-  listMinapdbs(filter: TableMinapdbFilterInput, limit: Int, nextToken: String): MinapdbConnection
+  getMinapDBEntry(id: ID!): MinapDBEntry @aws_api_key @aws_iam
+  listMinapDBEntries(filter: ModelMinapDBEntryFilterInput, limit: Int, nextToken: String): ModelMinapDBEntryConnection @aws_api_key @aws_iam
+  syncMinapDBEntries(filter: ModelMinapDBEntryFilterInput, lastSync: AWSTimestamp, limit: Int, nextToken: String): ModelMinapDBEntryConnection @aws_api_key @aws_iam
 }
 
 type Subscription {
-  onCreateMinapdb(participantid: Int, sleepSessionEnd: Int, sleepSessionStart: Int): Minapdb @aws_subscribe(mutations : ["createMinapdb"])
-  onDeleteMinapdb(participantid: Int, sleepSessionEnd: Int, sleepSessionStart: Int): Minapdb @aws_subscribe(mutations : ["deleteMinapdb"])
-  onUpdateMinapdb(participantid: Int, sleepSessionEnd: Int, sleepSessionStart: Int): Minapdb @aws_subscribe(mutations : ["updateMinapdb"])
+  onCreateMinapDBEntry(filter: ModelSubscriptionMinapDBEntryFilterInput): MinapDBEntry @aws_api_key @aws_iam @aws_subscribe(mutations : ["createMinapDBEntry"])
+  onDeleteMinapDBEntry(filter: ModelSubscriptionMinapDBEntryFilterInput): MinapDBEntry @aws_api_key @aws_iam @aws_subscribe(mutations : ["deleteMinapDBEntry"])
+  onUpdateMinapDBEntry(filter: ModelSubscriptionMinapDBEntryFilterInput): MinapDBEntry @aws_api_key @aws_iam @aws_subscribe(mutations : ["updateMinapDBEntry"])
 }
 
-input CreateMinapdbInput {
-  participantid: Int!
-  studyid: Int
+enum ModelAttributeTypes {
+  _null
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
 }
 
-input DeleteMinapdbInput {
-  participantid: Int!
+enum ModelSortDirection {
+  ASC
+  DESC
 }
 
-input TableBooleanFilterInput {
+input CreateMinapDBEntryInput {
+  _version: Int
+  id: ID
+  participantid: String
+  remarks: String
+  sleepSessionEnd: AWSDateTime
+  sleepSessionStart: AWSDateTime
+  studyid: String
+}
+
+input DeleteMinapDBEntryInput {
+  _version: Int
+  id: ID!
+}
+
+input ModelBooleanInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
   eq: Boolean
   ne: Boolean
 }
 
-input TableFloatFilterInput {
+input ModelFloatInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
   between: [Float]
-  contains: Float
   eq: Float
   ge: Float
   gt: Float
   le: Float
   lt: Float
   ne: Float
-  notContains: Float
 }
 
-input TableIDFilterInput {
+input ModelIDInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
   beginsWith: ID
   between: [ID]
   contains: ID
@@ -71,27 +107,59 @@ input TableIDFilterInput {
   lt: ID
   ne: ID
   notContains: ID
+  size: ModelSizeInput
 }
 
-input TableIntFilterInput {
+input ModelIntInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
   between: [Int]
-  contains: Int
   eq: Int
   ge: Int
   gt: Int
   le: Int
   lt: Int
   ne: Int
-  notContains: Int
 }
 
-input TableMinapdbFilterInput {
-  participantid: TableIntFilterInput
-  sleepSessionEnd: TableIntFilterInput
-  sleepSessionStart: TableIntFilterInput
+input ModelMinapDBEntryConditionInput {
+  _deleted: ModelBooleanInput
+  and: [ModelMinapDBEntryConditionInput]
+  not: ModelMinapDBEntryConditionInput
+  or: [ModelMinapDBEntryConditionInput]
+  participantid: ModelStringInput
+  remarks: ModelStringInput
+  sleepSessionEnd: ModelStringInput
+  sleepSessionStart: ModelStringInput
+  studyid: ModelStringInput
 }
 
-input TableStringFilterInput {
+input ModelMinapDBEntryFilterInput {
+  _deleted: ModelBooleanInput
+  and: [ModelMinapDBEntryFilterInput]
+  id: ModelIDInput
+  not: ModelMinapDBEntryFilterInput
+  or: [ModelMinapDBEntryFilterInput]
+  participantid: ModelStringInput
+  remarks: ModelStringInput
+  sleepSessionEnd: ModelStringInput
+  sleepSessionStart: ModelStringInput
+  studyid: ModelStringInput
+}
+
+input ModelSizeInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input ModelStringInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
   beginsWith: String
   between: [String]
   contains: String
@@ -102,10 +170,86 @@ input TableStringFilterInput {
   lt: String
   ne: String
   notContains: String
+  size: ModelSizeInput
 }
 
-input UpdateMinapdbInput {
+input ModelSubscriptionBooleanInput {
+  eq: Boolean
+  ne: Boolean
+}
+
+input ModelSubscriptionFloatInput {
+  between: [Float]
+  eq: Float
+  ge: Float
+  gt: Float
+  in: [Float]
+  le: Float
+  lt: Float
+  ne: Float
+  notIn: [Float]
+}
+
+input ModelSubscriptionIDInput {
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  in: [ID]
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+  notIn: [ID]
+}
+
+input ModelSubscriptionIntInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  in: [Int]
+  le: Int
+  lt: Int
+  ne: Int
+  notIn: [Int]
+}
+
+input ModelSubscriptionMinapDBEntryFilterInput {
+  _deleted: ModelBooleanInput
+  and: [ModelSubscriptionMinapDBEntryFilterInput]
+  id: ModelSubscriptionIDInput
+  or: [ModelSubscriptionMinapDBEntryFilterInput]
+  participantid: ModelSubscriptionStringInput
+  remarks: ModelSubscriptionStringInput
+  sleepSessionEnd: ModelSubscriptionStringInput
+  sleepSessionStart: ModelSubscriptionStringInput
+  studyid: ModelSubscriptionStringInput
+}
+
+input ModelSubscriptionStringInput {
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  in: [String]
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+  notIn: [String]
+}
+
+input UpdateMinapDBEntryInput {
+  _version: Int
+  id: ID!
+  participantid: String
   remarks: String
-  sleepSessionEnd: Int
-  sleepSessionStart: Int
+  sleepSessionEnd: AWSDateTime
+  sleepSessionStart: AWSDateTime
+  studyid: String
 }

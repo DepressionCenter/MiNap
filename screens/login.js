@@ -1,9 +1,9 @@
 import { StyleSheet, View, Image } from 'react-native';
 import React, { useContext, useState } from 'react';
 import { Surface, TextInput, Button, Text } from 'react-native-paper';
-import {API, graphqlOperation} from 'aws-amplify';
-import {createMinapdb} from '../src/graphql/mutations';
-import { listMinapdbs, getMinapdb } from '../src/graphql/queries';
+import { API, graphqlOperation } from 'aws-amplify';
+import { createMinapDBEntry } from '../src/graphql/mutations';
+import { listMinapDBEntries } from '../src/graphql/queries';
 import { AuthContext } from '../auth-context';
 
 
@@ -16,15 +16,15 @@ export default function LoginScreen ({ navigation }) {
         console.log(studyid)
     //   try 
     //   {
-    //     if (!participantid.value || !studyid.value) return;
+    //     if (participantid.value == "" || !studyid.value == "") return;
     //     const createEntry = {
-    //         participantid: parseInt(participantid.value),
-    //         studyid: parseInt(studyid.value),
+    //         participantid: participantid.value,
+    //         studyid: studyid.value,
             // sleepSessionStart: 0,
             // sleepSessionEnd: 0,
             // remarks: ""
     //     };
-    //     await API.graphql(graphqlOperation(createMinapdb, {input: createEntry}));
+    //     await API.graphql(graphqlOperation(createMinapDBEntry, {input: createEntry}));
     //   }
     //   catch (err) {
     //     console.log('error creating entry:', err);
@@ -37,17 +37,30 @@ export default function LoginScreen ({ navigation }) {
                 setStudyid({ value: studyid.value, error: 'participantid and study id can not be empty' });
                 return;
             }
-            const userData = await API.graphql(graphqlOperation(getMinapdb, {participantid: parseInt(participantid.value)}));
-            // console.log(userData)
-            if (userData.data.getMinapdb == null) {
-                console.log('participantid does not match');
+
+            // create filter for user data retrieval
+            const variables = {
+                filter: {
+                    and: [
+                        { participantid: { eq: participantid.value } },
+                        { sleepSessionStart: { attributeExists: false } },
+                        { sleepSessionEnd: { attributeExists: false }}
+                    ]
+                },
+            };
+
+            //retrieve auth info
+            const userData = await API.graphql(graphqlOperation(listMinapDBEntries, variables));
+            console.log(userData.data.listMinapDBEntries.items)
+            if (userData.data.listMinapDBEntries.items.length == 0) {
                 setParticipantid({ value: participantid.value, error: 'participantid does not exist' });
                 return;
             }
-            if (userData.data.getMinapdb.studyid != parseInt(studyid.value)) {
-                console.log('studyid does not match');
-                setStudyid({ value: studyid.value, error: 'studyid does not match' });
-                return;
+            else {
+                if (userData.data.listMinapDBEntries.items[0]["studyid"] != studyid.value) {
+                    setStudyid({ value: studyid.value, error: 'participantid and studyid does not match' });
+                    return;
+                }
             }
         }
         catch (err) {

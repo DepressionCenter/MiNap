@@ -1,38 +1,65 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createMinapdb = /* GraphQL */ `
-  mutation CreateMinapdb($input: CreateMinapdbInput!) {
-    createMinapdb(input: $input) {
-      participantid
+export const createMinapDBEntry = /* GraphQL */ `
+  mutation CreateMinapDBEntry(
+    $input: CreateMinapDBEntryInput!
+    $condition: ModelMinapDBEntryConditionInput
+  ) {
+    createMinapDBEntry(input: $input, condition: $condition) {
+      id
       sleepSessionStart
       sleepSessionEnd
       studyid
       remarks
+      participantid
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
 `;
-export const updateMinapdb = /* GraphQL */ `
-  mutation UpdateMinapdb($input: UpdateMinapdbInput!) {
-    updateMinapdb(input: $input) {
-      participantid
+export const updateMinapDBEntry = /* GraphQL */ `
+  mutation UpdateMinapDBEntry(
+    $input: UpdateMinapDBEntryInput!
+    $condition: ModelMinapDBEntryConditionInput
+  ) {
+    updateMinapDBEntry(input: $input, condition: $condition) {
+      id
       sleepSessionStart
       sleepSessionEnd
       studyid
       remarks
+      participantid
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
 `;
-export const deleteMinapdb = /* GraphQL */ `
-  mutation DeleteMinapdb($input: DeleteMinapdbInput!) {
-    deleteMinapdb(input: $input) {
-      participantid
+export const deleteMinapDBEntry = /* GraphQL */ `
+  mutation DeleteMinapDBEntry(
+    $input: DeleteMinapDBEntryInput!
+    $condition: ModelMinapDBEntryConditionInput
+  ) {
+    deleteMinapDBEntry(input: $input, condition: $condition) {
+      id
       sleepSessionStart
       sleepSessionEnd
       studyid
       remarks
+      participantid
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }

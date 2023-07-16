@@ -1,62 +1,62 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateMinapdb = /* GraphQL */ `
-  subscription OnCreateMinapdb(
-    $participantid: Int
-    $sleepSessionStart: Int
-    $sleepSessionEnd: Int
+export const onCreateMinapDBEntry = /* GraphQL */ `
+  subscription OnCreateMinapDBEntry(
+    $filter: ModelSubscriptionMinapDBEntryFilterInput
   ) {
-    onCreateMinapdb(
-      participantid: $participantid
-      sleepSessionStart: $sleepSessionStart
-      sleepSessionEnd: $sleepSessionEnd
-    ) {
-      participantid
+    onCreateMinapDBEntry(filter: $filter) {
+      id
       sleepSessionStart
       sleepSessionEnd
       studyid
       remarks
+      participantid
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
 `;
-export const onUpdateMinapdb = /* GraphQL */ `
-  subscription OnUpdateMinapdb(
-    $participantid: Int
-    $sleepSessionStart: Int
-    $sleepSessionEnd: Int
+export const onUpdateMinapDBEntry = /* GraphQL */ `
+  subscription OnUpdateMinapDBEntry(
+    $filter: ModelSubscriptionMinapDBEntryFilterInput
   ) {
-    onUpdateMinapdb(
-      participantid: $participantid
-      sleepSessionStart: $sleepSessionStart
-      sleepSessionEnd: $sleepSessionEnd
-    ) {
-      participantid
+    onUpdateMinapDBEntry(filter: $filter) {
+      id
       sleepSessionStart
       sleepSessionEnd
       studyid
       remarks
+      participantid
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
 `;
-export const onDeleteMinapdb = /* GraphQL */ `
-  subscription OnDeleteMinapdb(
-    $participantid: Int
-    $sleepSessionStart: Int
-    $sleepSessionEnd: Int
+export const onDeleteMinapDBEntry = /* GraphQL */ `
+  subscription OnDeleteMinapDBEntry(
+    $filter: ModelSubscriptionMinapDBEntryFilterInput
   ) {
-    onDeleteMinapdb(
-      participantid: $participantid
-      sleepSessionStart: $sleepSessionStart
-      sleepSessionEnd: $sleepSessionEnd
-    ) {
-      participantid
+    onDeleteMinapDBEntry(filter: $filter) {
+      id
       sleepSessionStart
       sleepSessionEnd
       studyid
       remarks
+      participantid
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
