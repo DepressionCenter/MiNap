@@ -1,11 +1,7 @@
-# This "input" configures a global authorization rule to enable public access to
-# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
-input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
-
-type Minapdb @model {
-    participantid: Int!
-    sleepSessionStart: Int
-    sleepSessionEnd: Int
-    studyid: Int
-    remarks: String
+type MinapDBEntry @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  sleepSessionStart: AWSDateTime
+  sleepSessionEnd: AWSDateTime
+  studyid: ID
+  remarks: String
 }

@@ -2,24 +2,21 @@
 import Amplify
 import Foundation
 
-public struct Minapdb: Model {
+public struct MinapDBEntry: Model {
   public let id: String
-  public var participantid: Int
-  public var sleepSessionStart: Int?
-  public var sleepSessionEnd: Int?
-  public var studyid: Int?
+  public var sleepSessionStart: Temporal.DateTime?
+  public var sleepSessionEnd: Temporal.DateTime?
+  public var studyid: String?
   public var remarks: String?
   public var createdAt: Temporal.DateTime?
   public var updatedAt: Temporal.DateTime?
   
   public init(id: String = UUID().uuidString,
-      participantid: Int,
-      sleepSessionStart: Int? = nil,
-      sleepSessionEnd: Int? = nil,
-      studyid: Int? = nil,
+      sleepSessionStart: Temporal.DateTime? = nil,
+      sleepSessionEnd: Temporal.DateTime? = nil,
+      studyid: String? = nil,
       remarks: String? = nil) {
     self.init(id: id,
-      participantid: participantid,
       sleepSessionStart: sleepSessionStart,
       sleepSessionEnd: sleepSessionEnd,
       studyid: studyid,
@@ -28,15 +25,13 @@ public struct Minapdb: Model {
       updatedAt: nil)
   }
   internal init(id: String = UUID().uuidString,
-      participantid: Int,
-      sleepSessionStart: Int? = nil,
-      sleepSessionEnd: Int? = nil,
-      studyid: Int? = nil,
+      sleepSessionStart: Temporal.DateTime? = nil,
+      sleepSessionEnd: Temporal.DateTime? = nil,
+      studyid: String? = nil,
       remarks: String? = nil,
       createdAt: Temporal.DateTime? = nil,
       updatedAt: Temporal.DateTime? = nil) {
       self.id = id
-      self.participantid = participantid
       self.sleepSessionStart = sleepSessionStart
       self.sleepSessionEnd = sleepSessionEnd
       self.studyid = studyid

@@ -1,9 +1,9 @@
 {
   "pins" : [
     {
-      "identity" : "amplify-swift",
+      "identity" : "amplify-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/aws-amplify/amplify-swift",
+      "location" : "https://github.com/aws-amplify/amplify-ios",
       "state" : {
         "revision" : "bb69fc1febc23dfc539531ce7dd3b51cdf97d813",
         "version" : "2.14.1"

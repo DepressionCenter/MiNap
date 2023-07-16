@@ -10,24 +10,23 @@ import Amplify
 import AWSAPIPlugin
 
 
-class MyWatchAppDelegate: NSObject, WKApplicationDelegate {
-    func application(
-        _ application: WKApplication
-    ) -> Bool {
+func configureAmplify() {
         do {
-            try Amplify.add(plugin: AWSAPIPlugin())
+            try Amplify.add(plugin: AWSAPIPlugin(modelRegistration: AmplifyModels()))
             try Amplify.configure()
+            print("Successfully initialized Amplify")
         } catch {
             print("An error occurred setting up Amplify: \(error)")
         }
-        return true
-    }
 }
 
 
 @main
 struct MiNap_Sleepwatch_front_Watch_AppApp: App {
-    @WKApplicationDelegateAdaptor var appDelegate: MyWatchAppDelegate
+    init() {
+        configureAmplify()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

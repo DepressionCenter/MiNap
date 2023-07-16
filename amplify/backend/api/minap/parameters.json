@@ -1,5 +1,5 @@
 {
-  "AppSyncApiName": "minap",
+  "AppSyncApiName": "MiNap",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false
 }

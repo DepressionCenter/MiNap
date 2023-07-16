@@ -1,13 +1,18 @@
 {
   "api": {
-    "minap": {
+    "MiNap": {
       "dependsOn": [],
       "output": {
         "authConfig": {
-          "additionalAuthenticationProviders": [],
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
           "defaultAuthentication": {
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 7
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
             },
             "authenticationType": "API_KEY"
           }
@@ -16,6 +21,5 @@
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
     }
-  },
-  "custom": {}
+  }
 }
