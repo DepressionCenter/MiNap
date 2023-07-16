@@ -43,6 +43,7 @@ function ProfileStackScreen() {
   return (
     <SettingsStack.Navigator>
       <SettingsStack.Screen name="Settings" component={ProfileScreen} />
+      <SettingsStack.Screen name="LoginScreen" component={LoginScreen} />
     </SettingsStack.Navigator>
   );
 }
