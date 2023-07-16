@@ -8,6 +8,7 @@ public struct MinapDBEntry: Model {
   public var sleepSessionEnd: Temporal.DateTime?
   public var studyid: String?
   public var remarks: String?
+  public var participantid: String?
   public var createdAt: Temporal.DateTime?
   public var updatedAt: Temporal.DateTime?
   
@@ -15,12 +16,14 @@ public struct MinapDBEntry: Model {
       sleepSessionStart: Temporal.DateTime? = nil,
       sleepSessionEnd: Temporal.DateTime? = nil,
       studyid: String? = nil,
-      remarks: String? = nil) {
+      remarks: String? = nil,
+      participantid: String? = nil) {
     self.init(id: id,
       sleepSessionStart: sleepSessionStart,
       sleepSessionEnd: sleepSessionEnd,
       studyid: studyid,
       remarks: remarks,
+      participantid: participantid,
       createdAt: nil,
       updatedAt: nil)
   }
@@ -29,6 +32,7 @@ public struct MinapDBEntry: Model {
       sleepSessionEnd: Temporal.DateTime? = nil,
       studyid: String? = nil,
       remarks: String? = nil,
+      participantid: String? = nil,
       createdAt: Temporal.DateTime? = nil,
       updatedAt: Temporal.DateTime? = nil) {
       self.id = id
@@ -36,6 +40,7 @@ public struct MinapDBEntry: Model {
       self.sleepSessionEnd = sleepSessionEnd
       self.studyid = studyid
       self.remarks = remarks
+      self.participantid = participantid
       self.createdAt = createdAt
       self.updatedAt = updatedAt
   }

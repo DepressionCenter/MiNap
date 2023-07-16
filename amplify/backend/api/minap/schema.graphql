@@ -2,6 +2,7 @@ type MinapDBEntry @model @auth(rules: [{allow: public}]) {
   id: ID!
   sleepSessionStart: AWSDateTime
   sleepSessionEnd: AWSDateTime
-  studyid: ID
+  studyid: String
   remarks: String
-}
+  participantid: String
+} 

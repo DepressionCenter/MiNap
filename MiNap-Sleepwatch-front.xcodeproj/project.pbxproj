@@ -18,10 +18,10 @@
 		9C47DBB52A624C99002E66BE /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 9C47DBB42A624C99002E66BE /* AWSAPIPlugin */; };
 		9C47DBB72A624C99002E66BE /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 9C47DBB62A624C99002E66BE /* AWSDataStorePlugin */; };
 		9C47DBB92A624C99002E66BE /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 9C47DBB82A624C99002E66BE /* Amplify */; };
-		9C47DBCA2A635871002E66BE /* MinapDBEntry+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47DBC72A635871002E66BE /* MinapDBEntry+Schema.swift */; };
-		9C47DBCB2A635871002E66BE /* MinapDBEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47DBC82A635871002E66BE /* MinapDBEntry.swift */; };
-		9C47DBCC2A635871002E66BE /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47DBC92A635871002E66BE /* AmplifyModels.swift */; };
-		9C47DBCE2A635889002E66BE /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C47DBCD2A635889002E66BE /* amplifyconfiguration.json */; };
+		9C47DBD22A63BA81002E66BE /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47DBCF2A63BA81002E66BE /* AmplifyModels.swift */; };
+		9C47DBD32A63BA81002E66BE /* MinapDBEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47DBD02A63BA81002E66BE /* MinapDBEntry.swift */; };
+		9C47DBD42A63BA81002E66BE /* MinapDBEntry+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47DBD12A63BA81002E66BE /* MinapDBEntry+Schema.swift */; };
+		9C47DBD62A63BAAA002E66BE /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C47DBD52A63BAAA002E66BE /* amplifyconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,10 +74,10 @@
 		648963792A4F57DC00C7FA5D /* MiNap-Sleepwatch-front Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MiNap-Sleepwatch-front Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6489637D2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiNap_Sleepwatch_front_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		6489637F2A4F57DC00C7FA5D /* MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiNap_Sleepwatch_front_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9C47DBC72A635871002E66BE /* MinapDBEntry+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MinapDBEntry+Schema.swift"; sourceTree = "<group>"; };
-		9C47DBC82A635871002E66BE /* MinapDBEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinapDBEntry.swift; sourceTree = "<group>"; };
-		9C47DBC92A635871002E66BE /* AmplifyModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplifyModels.swift; sourceTree = "<group>"; };
-		9C47DBCD2A635889002E66BE /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
+		9C47DBCF2A63BA81002E66BE /* AmplifyModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplifyModels.swift; sourceTree = "<group>"; };
+		9C47DBD02A63BA81002E66BE /* MinapDBEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinapDBEntry.swift; sourceTree = "<group>"; };
+		9C47DBD12A63BA81002E66BE /* MinapDBEntry+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MinapDBEntry+Schema.swift"; sourceTree = "<group>"; };
+		9C47DBD52A63BAAA002E66BE /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +133,7 @@
 		648963612A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				9C47DBCD2A635889002E66BE /* amplifyconfiguration.json */,
+				9C47DBD52A63BAAA002E66BE /* amplifyconfiguration.json */,
 				9C47DBA52A61EB94002E66BE /* models */,
 				648963622A4F57DA00C7FA5D /* MiNap_Sleepwatch_frontApp.swift */,
 				648963642A4F57DA00C7FA5D /* ContentView.swift */,
@@ -171,9 +171,9 @@
 		9C47DBA52A61EB94002E66BE /* models */ = {
 			isa = PBXGroup;
 			children = (
-				9C47DBC92A635871002E66BE /* AmplifyModels.swift */,
-				9C47DBC82A635871002E66BE /* MinapDBEntry.swift */,
-				9C47DBC72A635871002E66BE /* MinapDBEntry+Schema.swift */,
+				9C47DBCF2A63BA81002E66BE /* AmplifyModels.swift */,
+				9C47DBD02A63BA81002E66BE /* MinapDBEntry.swift */,
+				9C47DBD12A63BA81002E66BE /* MinapDBEntry+Schema.swift */,
 			);
 			name = models;
 			path = amplify/generated/models;
@@ -327,7 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6489636A2A4F57DC00C7FA5D /* Preview Assets.xcassets in Resources */,
-				9C47DBCE2A635889002E66BE /* amplifyconfiguration.json in Resources */,
+				9C47DBD62A63BAAA002E66BE /* amplifyconfiguration.json in Resources */,
 				648963672A4F57DC00C7FA5D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,11 +353,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C47DBCC2A635871002E66BE /* AmplifyModels.swift in Sources */,
 				648963652A4F57DA00C7FA5D /* ContentView.swift in Sources */,
-				9C47DBCA2A635871002E66BE /* MinapDBEntry+Schema.swift in Sources */,
-				9C47DBCB2A635871002E66BE /* MinapDBEntry.swift in Sources */,
+				9C47DBD22A63BA81002E66BE /* AmplifyModels.swift in Sources */,
+				9C47DBD32A63BA81002E66BE /* MinapDBEntry.swift in Sources */,
 				648963632A4F57DA00C7FA5D /* MiNap_Sleepwatch_frontApp.swift in Sources */,
+				9C47DBD42A63BA81002E66BE /* MinapDBEntry+Schema.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

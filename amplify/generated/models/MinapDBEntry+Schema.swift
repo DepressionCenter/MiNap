@@ -10,6 +10,7 @@ extension MinapDBEntry {
     case sleepSessionEnd
     case studyid
     case remarks
+    case participantid
     case createdAt
     case updatedAt
   }
@@ -36,6 +37,7 @@ extension MinapDBEntry {
       .field(minapDBEntry.sleepSessionEnd, is: .optional, ofType: .dateTime),
       .field(minapDBEntry.studyid, is: .optional, ofType: .string),
       .field(minapDBEntry.remarks, is: .optional, ofType: .string),
+      .field(minapDBEntry.participantid, is: .optional, ofType: .string),
       .field(minapDBEntry.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
       .field(minapDBEntry.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime)
     )
