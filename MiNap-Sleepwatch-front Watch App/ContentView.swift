@@ -4,6 +4,8 @@
 //
 //  Created by Jeong Hin Chin on 7/3/23.
 //
+//  Update: 7/17/2023
+//  Changed prompt button; added log out
 
 import SwiftUI
 import WatchKit
@@ -215,21 +217,33 @@ enum OptionalError: LocalizedError {
             @Binding var showSleepScreen: Bool
             @State private var animate = false
             @State private var showRecordedMessage = false
+            @State private var showLogOut = false
             @ObservedObject var authContext = AuthenticationContext.shared
             
             var body: some View {
                 VStack {
+                    Button("Log out"){
+                        // Display the recorded message
+                        showLogOut = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            
+                            // Link to sign in page
+                            // AuthScreen()
+                            // Change this part if wrong
+                            
+                            authContext.logout()
+                            
+                        }
+                    }
                     Image(systemName: "bed.double.fill")
-                        .font(.system(size: 100))
+                        .font(.system(size: 50))
                         .rotationEffect(Angle.degrees(animate ? 360 : 0))
                     
-                    Text("Sleep")
-                        .font(.title)
+                    Text("Are you going to sleep?")
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.center)
                     
-                    Button(
-                        "Go to Sleep"
-                    )
-                    {
+                    Button("Go to Sleep"){
                         print("button clicked")
                         authContext.startSession()
                         
@@ -264,6 +278,11 @@ enum OptionalError: LocalizedError {
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
+                    if showLogOut {
+                        Text("Logging out...")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
                 }
             }
         }
@@ -272,16 +291,31 @@ enum OptionalError: LocalizedError {
             @Binding var showSleepScreen: Bool
             @State private var animate = false
             @State private var showRecordedMessage = false
+            @State private var showLogOut = false
             @ObservedObject var authContext = AuthenticationContext.shared
             
             var body: some View {
                 VStack {
+                    Button("Log out"){
+                        // Display the recorded message
+                        showLogOut = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            
+                            // Link to sign in page
+                            // AuthScreen()
+                            // Change this part if wrong
+                        
+                            authContext.logout()
+                            
+                        }
+                    }
                     Image(systemName: "sunrise.fill")
-                        .font(.system(size: 100))
+                        .font(.system(size: 50))
                         .rotationEffect(Angle.degrees(animate ? 360 : 0))
                     
-                    Text("Wake up")
-                        .font(.title)
+                    Text("Are you ready to wake up?")
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.center)
                     
                     Button("Wake up") {
                         print("wake up button pressed")
@@ -323,6 +357,11 @@ enum OptionalError: LocalizedError {
                     
                     if showRecordedMessage {
                         Text("Recording...")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                    if showLogOut {
+                        Text("Logging out...")
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
