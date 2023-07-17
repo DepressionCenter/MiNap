@@ -2,8 +2,7 @@ import { StyleSheet, View, Image } from 'react-native';
 import React, { useContext, useState } from 'react';
 import { Surface, TextInput, Button, Text } from 'react-native-paper';
 import { API, graphqlOperation } from 'aws-amplify';
-import { createMinapDBEntry } from '../src/graphql/mutations';
-import { listMinapDBEntries } from '../src/graphql/queries';
+import { listMinapDBAuths } from '../src/graphql/queries'
 import { AuthContext } from '../auth-context';
 
 
@@ -41,23 +40,19 @@ export default function LoginScreen ({ navigation }) {
             // create filter for user data retrieval
             const variables = {
                 filter: {
-                    and: [
-                        { participantid: { eq: participantid.value } },
-                        { sleepSessionStart: { attributeExists: false } },
-                        { sleepSessionEnd: { attributeExists: false }}
-                    ]
-                },
+                    participantid: { eq: participantid.value }
+                }
             };
 
             //retrieve auth info
-            const userData = await API.graphql(graphqlOperation(listMinapDBEntries, variables));
-            console.log(userData.data.listMinapDBEntries.items)
-            if (userData.data.listMinapDBEntries.items.length == 0) {
+            userData = await API.graphql(graphqlOperation(listMinapDBAuths, variables));
+            console.log(userData.data.listMinapDBAuths.items);
+            if (userData.data.listMinapDBAuths.items.length == 0) {
                 setParticipantid({ value: participantid.value, error: 'participantid does not exist' });
                 return;
             }
             else {
-                if (userData.data.listMinapDBEntries.items[0]["studyid"] != studyid.value) {
+                if (userData.data.listMinapDBAuths.items[0]["studyid"] != studyid.value) {
                     setStudyid({ value: studyid.value, error: 'participantid and studyid does not match' });
                     return;
                 }

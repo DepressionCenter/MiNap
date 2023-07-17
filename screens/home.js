@@ -2,8 +2,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../auth-context';
-import { graphqlOperation } from 'aws-amplify';
+import { API, graphqlOperation } from 'aws-amplify';
 import { List, DataTable } from 'react-native-paper';
+import { onCreateMinapDBEntry } from '../src/graphql/subscriptions'
 
 const data = [
     { id: 1, title: 'Survey 1', description: 'Take survey 1' },
@@ -13,8 +14,38 @@ const data = [
 
 const CredentialList = ({ list }) => {
     const auth = useContext(AuthContext);
-    const [expanded, setExpanded] = useState(true);
+    const [expanded, setExpanded] = useState(false);
     const handlePress = () => setExpanded(!expanded);
+    const [surveyList, setSurveyList] = useState([]);
+
+    // subscribes to sleep entry creation
+    useEffect(() => {
+        const sub = API.graphql(
+            graphqlOperation(onCreateMinapDBEntry)
+        ).subscribe({
+            next: ({ provider, value }) => {
+                // console.log({ provider, value })
+                const sessionObj = value.data.onCreateMinapDBEntry
+                console.log(sessionObj)
+                const awsDate = new Date(sessionObj.sleepSessionEnd);
+                const dateString = awsDate.toISOString();
+                const listItem = {
+                    id: sessionObj.id,
+                    title: "Sleep Survey in session " + dateString,
+                    description: 'Take this survey if you may',
+                    record: awsDate
+                }
+                setSurveyList(prevList => Array.isArray(prevList) ? prevList.concat(listItem) : [listItem])
+                console.log(surveyList)
+            },
+            error: (error) => console.warn(error)
+        });
+    
+        // Clean up subscription on unmount
+        return () => sub.unsubscribe();
+        
+      }, []);
+    
     return (
         <List.Section style={styles.list}>
             <List.Accordion
@@ -22,7 +53,7 @@ const CredentialList = ({ list }) => {
                 left={props => <List.Icon {...props} icon="pen" />}
                 expanded={expanded}
                 onPress={handlePress}>
-                {list.map(item => (
+                {Array.isArray(surveyList) && surveyList.map(item => (
                     <List.Item key={item.id} title={item.title} description={item.description}/>
                 ))
                 }

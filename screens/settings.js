@@ -7,7 +7,7 @@ import { List } from 'react-native-paper';
 
 const CredentialList = () => {
   const auth = useContext(AuthContext);
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   const handlePress = () => setExpanded(!expanded);
 
 
