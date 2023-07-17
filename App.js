@@ -10,7 +10,7 @@ import LoginScreen from './screens/login.js';
 
 import { Amplify } from 'aws-amplify';
 import awsExports from './src/aws-exports';
-import { SafeAreaView } from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
 import AuthProvider, { AuthContext } from './auth-context.js';
 Amplify.configure(awsExports);
 
@@ -119,11 +119,13 @@ export default function App() {
   const auth = useContext(AuthContext)
   console.log(auth)
   return (
+    <PaperProvider>
       <AuthProvider>
         <NavigationContainer>
           {!auth.isAuthenticated && <InitScreen/>}
           {auth.isAuthenticated && <BottomNav/>}
         </NavigationContainer>
       </AuthProvider>
+    </PaperProvider>
   );
 }

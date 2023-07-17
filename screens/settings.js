@@ -2,28 +2,28 @@ import { StyleSheet, View, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../auth-context';
-import { Text, Button, Card } from 'react-native-paper';
+import { Button } from 'react-native-paper';
 import { List } from 'react-native-paper';
-import { AutoScaling } from 'aws-sdk';
 
 const CredentialList = () => {
-    const auth = useContext(AuthContext)
-    const [expanded, setExpanded] = useState(true);
-    const handlePress = () => setExpanded(!expanded);
-  
-    return (
-      <List.Section style={styles.list}>  
-        <List.Accordion
-          title="Your Credentials"
-          left={props => <List.Icon {...props} icon="key" />}
-          expanded={expanded}
-          onPress={handlePress}>
-          <List.Item title="Participant ID" description={auth.participantid}/>
-          <List.Item title="Study ID" description={auth.studyid}/>
-        </List.Accordion>
-      </List.Section>
-    );
-  };
+  const auth = useContext(AuthContext);
+  const [expanded, setExpanded] = useState(true);
+  const handlePress = () => setExpanded(!expanded);
+
+
+  return (
+    <List.Section style={styles.list}>  
+      <List.Accordion
+        title="Your Credentials"
+        left={props => <List.Icon {...props} icon="key" />}
+        expanded={expanded}
+        onPress={handlePress}>
+        <List.Item title="Participant ID" description={auth.participantid}/>
+        <List.Item title="Study ID" description={auth.studyid}/>
+      </List.Accordion>
+    </List.Section>
+  );
+};
 
 export default function ProfileScreen ({ navigation }) {
     const auth = useContext(AuthContext)
