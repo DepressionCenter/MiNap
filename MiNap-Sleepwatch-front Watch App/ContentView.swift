@@ -291,24 +291,24 @@ enum OptionalError: LocalizedError {
             @Binding var showSleepScreen: Bool
             @State private var animate = false
             @State private var showRecordedMessage = false
-            @State private var showLogOut = false
+//            @State private var showLogOut = false
             @ObservedObject var authContext = AuthenticationContext.shared
             
             var body: some View {
                 VStack {
-                    Button("Log out"){
-                        // Display the recorded message
-                        showLogOut = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            
-                            // Link to sign in page
-                            // AuthScreen()
-                            // Change this part if wrong
-                        
-                            authContext.logout()
-                            
-                        }
-                    }
+//                    Button("Log out"){
+//                        // Display the recorded message
+//                        showLogOut = true
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//
+//                            // Link to sign in page
+//                            // AuthScreen()
+//                            // Change this part if wrong
+//
+//                            authContext.logout()
+//
+//                        }
+//                    }
                     Image(systemName: "sunrise.fill")
                         .font(.system(size: 50))
                         .rotationEffect(Angle.degrees(animate ? 360 : 0))
@@ -360,11 +360,11 @@ enum OptionalError: LocalizedError {
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
-                    if showLogOut {
-                        Text("Logging out...")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                    }
+//                    if showLogOut {
+//                        Text("Logging out...")
+//                            .font(.subheadline)
+//                            .foregroundColor(.gray)
+//                    }
                 }
             }
             
