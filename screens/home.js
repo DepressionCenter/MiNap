@@ -5,6 +5,7 @@ import { AuthContext } from '../auth-context';
 import { API, graphqlOperation } from 'aws-amplify';
 import { List, DataTable } from 'react-native-paper';
 import { onCreateMinapDBEntry } from '../src/graphql/subscriptions'
+import { listMinapDBEntries } from '../src/graphql/queries';
 
 const data = [
     { id: 1, title: 'Survey 1', description: 'Take survey 1' },
@@ -17,33 +18,63 @@ const CredentialList = ({ list }) => {
     const [expanded, setExpanded] = useState(false);
     const handlePress = () => setExpanded(!expanded);
     const [surveyList, setSurveyList] = useState([]);
+    const past_time = new Date(Date.now() - 60*60*1000).toISOString();
+    console.log(past_time)
 
+    const variables = {
+      filter: {
+        and: [
+          { participantid: { eq: auth.participantid } },
+          { studyid: { eq: auth.studyid } },
+          { sleepSessionEnd: { ge: past_time } }
+        ]
+      }
+    };
+    
     // subscribes to sleep entry creation
     useEffect(() => {
-        const sub = API.graphql(
-            graphqlOperation(onCreateMinapDBEntry)
-        ).subscribe({
-            next: ({ provider, value }) => {
-                // console.log({ provider, value })
-                const sessionObj = value.data.onCreateMinapDBEntry
-                console.log(sessionObj)
-                const awsDate = new Date(sessionObj.sleepSessionEnd);
-                const dateString = awsDate.toISOString();
-                const listItem = {
-                    id: sessionObj.id,
-                    title: "Sleep Survey in session " + dateString,
-                    description: 'Take this survey if you may',
-                    record: awsDate
-                }
-                setSurveyList(prevList => Array.isArray(prevList) ? prevList.concat(listItem) : [listItem])
-                console.log(surveyList)
-            },
-            error: (error) => console.warn(error)
-        });
-    
-        // Clean up subscription on unmount
-        return () => sub.unsubscribe();
-        
+      API.graphql({
+        query: listMinapDBEntries,
+        variables: variables
+      })
+      .then(response => {
+        console.log("filter result")
+        const fetchedItems = response.data.listMinapDBEntries.items
+        for (var i = 0; i < fetchedItems.length; i++) {
+          const listItem = {
+            id: fetchedItems[i].id,
+            title: "Sleep Survey in session " + fetchedItems[i]["sleepSessionEnd"],
+            description: 'Take this survey if you may',
+            record: fetchedItems[i]["sleepSessionEnd"]
+          }
+          setSurveyList(prevList => Array.isArray(prevList) ? prevList.concat(listItem) : [listItem])
+        }
+      })
+      .catch(err => console.log(err));
+
+      const sub = API.graphql(
+          graphqlOperation(onCreateMinapDBEntry)
+      ).subscribe({
+          next: ({ provider, value }) => {
+              // console.log({ provider, value })
+              const sessionObj = value.data.onCreateMinapDBEntry
+              console.log(sessionObj)
+              const awsDate = new Date(sessionObj.sleepSessionEnd);
+              const dateString = awsDate.toISOString();
+              const listItem = {
+                  id: sessionObj.id,
+                  title: "Sleep Survey in session " + dateString,
+                  description: 'Take this survey if you may',
+                  record: dateString
+              }
+              setSurveyList(prevList => Array.isArray(prevList) ? prevList.concat(listItem) : [listItem])
+              console.log(surveyList)
+          },
+          error: (error) => console.warn(error)
+      });
+  
+      // Clean up subscription on unmount
+      return () => sub.unsubscribe();
       }, []);
     
     return (
