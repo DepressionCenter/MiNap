@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "minap_sleep_resize1024.jpeg",
       "idiom" : "universal",
       "platform" : "watchos",
       "size" : "1024x1024"

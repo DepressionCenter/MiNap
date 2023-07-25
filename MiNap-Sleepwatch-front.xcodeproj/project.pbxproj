@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331022E22A70526900075DC4 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 331022E12A70526900075DC4 /* amplifyconfiguration.json */; };
 		6489635E2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6489635D2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		648963632A4F57DA00C7FA5D /* MiNap_Sleepwatch_frontApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648963622A4F57DA00C7FA5D /* MiNap_Sleepwatch_frontApp.swift */; };
 		648963652A4F57DA00C7FA5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648963642A4F57DA00C7FA5D /* ContentView.swift */; };
@@ -21,7 +22,6 @@
 		9C47DBD22A63BA81002E66BE /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47DBCF2A63BA81002E66BE /* AmplifyModels.swift */; };
 		9C47DBD32A63BA81002E66BE /* MinapDBEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47DBD02A63BA81002E66BE /* MinapDBEntry.swift */; };
 		9C47DBD42A63BA81002E66BE /* MinapDBEntry+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47DBD12A63BA81002E66BE /* MinapDBEntry+Schema.swift */; };
-		9C47DBD62A63BAAA002E66BE /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C47DBD52A63BAAA002E66BE /* amplifyconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		331022E12A70526900075DC4 /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = amplifyconfiguration.json; path = ../../../Downloads/amplifyconfiguration.json; sourceTree = "<group>"; };
 		648963572A4F57DA00C7FA5D /* MiNap-Sleepwatch-front.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MiNap-Sleepwatch-front.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6489635D2A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MiNap-Sleepwatch-front Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		648963622A4F57DA00C7FA5D /* MiNap_Sleepwatch_frontApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiNap_Sleepwatch_frontApp.swift; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		9C47DBCF2A63BA81002E66BE /* AmplifyModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplifyModels.swift; sourceTree = "<group>"; };
 		9C47DBD02A63BA81002E66BE /* MinapDBEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinapDBEntry.swift; sourceTree = "<group>"; };
 		9C47DBD12A63BA81002E66BE /* MinapDBEntry+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MinapDBEntry+Schema.swift"; sourceTree = "<group>"; };
-		9C47DBD52A63BAAA002E66BE /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +133,7 @@
 		648963612A4F57DA00C7FA5D /* MiNap-Sleepwatch-front Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				9C47DBD52A63BAAA002E66BE /* amplifyconfiguration.json */,
+				331022E12A70526900075DC4 /* amplifyconfiguration.json */,
 				9C47DBA52A61EB94002E66BE /* models */,
 				648963622A4F57DA00C7FA5D /* MiNap_Sleepwatch_frontApp.swift */,
 				648963642A4F57DA00C7FA5D /* ContentView.swift */,
@@ -327,8 +327,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6489636A2A4F57DC00C7FA5D /* Preview Assets.xcassets in Resources */,
-				9C47DBD62A63BAAA002E66BE /* amplifyconfiguration.json in Resources */,
 				648963672A4F57DC00C7FA5D /* Assets.xcassets in Resources */,
+				331022E22A70526900075DC4 /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
