@@ -4,7 +4,7 @@
 ## Actions this week
 * Create a sleep button screen 
 * Create a wake-up button screen 
-* Create animation/image screen 
+* Create animation/image screen
 
 ## Version 1.0.1
 #### Actions this week
@@ -18,4 +18,8 @@
 
 ## Version 1.0.3
 #### Actions this week
-* Remove the logout button: Once the smartwatch has started tracking the participant's sleep (by pressing the sleep button), remove the logout button from the current interface until the participant clicks wakeup button to complete a sleep log.
+* Remove the logout button: Once the smartwatch has started tracking the participant's sleep (by pressing the sleep button), remove the logout button from the current interface until the participant clicks the wakeup button to complete a sleep log.
+
+## Version 1.0.4
+#### Actions this week
+* Add the App Icon
