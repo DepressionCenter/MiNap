@@ -1,10 +1,31 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { useContext } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from 'minap/screens/home.js'
 import ProfileScreen from 'minap/screens/settings.js'
+import LoginScreen from './screens/login.js';
+
+import { Amplify } from 'aws-amplify';
+import awsExports from './src/aws-exports';
+import { Provider as PaperProvider } from 'react-native-paper';
+import AuthProvider, { AuthContext } from './auth-context.js';
+Amplify.configure(awsExports);
+
+const LoginStack = createNativeStackNavigator();
+
+function LoginStackScreen() {
+  return (
+    <LoginStack.Navigator
+    screenOptions={{
+      headerShown: false
+  }}>
+      <LoginStack.Screen name="LoginScreen" component={LoginScreen} />
+    </LoginStack.Navigator>
+  );
+}
 
 const HomeStack = createNativeStackNavigator();
 
@@ -22,15 +43,15 @@ function ProfileStackScreen() {
   return (
     <SettingsStack.Navigator>
       <SettingsStack.Screen name="Settings" component={ProfileScreen} />
+      <SettingsStack.Screen name="LoginScreen" component={LoginScreen} />
     </SettingsStack.Navigator>
   );
 }
 
 const Tab = createMaterialBottomTabNavigator();
-
-export default function App() {
+const BottomNav = () => {
   return (
-    <NavigationContainer>
+    <>
       <Tab.Navigator 
         initialRouteName="App"
         activeColor="#6b3acf"
@@ -76,6 +97,35 @@ export default function App() {
           <Tab.Screen name="Main" component={HomeStackScreen}/>
           <Tab.Screen name="Profile" component={ProfileStackScreen}/>
       </Tab.Navigator>
-    </NavigationContainer>
+    </>
+  )
+}
+
+const Stack = createNativeStackNavigator();
+
+const InitScreen = () => {
+  return (
+      <Stack.Navigator
+        screenOptions={{
+        headerShown: false
+      }}>
+        <Stack.Screen name = "Login" component={LoginStackScreen}/>
+        <Stack.Screen name = 'AfterInitScreen' component={BottomNav}/>
+      </Stack.Navigator>
+  );
+};
+
+export default function App() {
+  const auth = useContext(AuthContext)
+  console.log(auth)
+  return (
+    <PaperProvider>
+      <AuthProvider>
+        <NavigationContainer>
+          {!auth.isAuthenticated && <InitScreen/>}
+          {auth.isAuthenticated && <BottomNav/>}
+        </NavigationContainer>
+      </AuthProvider>
+    </PaperProvider>
   );
 }

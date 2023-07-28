@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-minap-dev-121613-authRole",
+      "UnauthRoleArn": "arn:aws:iam::838336655103:role/amplify-minap-dev-121613-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::838336655103:role/amplify-minap-dev-121613-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-minap-dev-121613-deployment",
+      "UnauthRoleName": "amplify-minap-dev-121613-unauthRole",
+      "StackName": "amplify-minap-dev-121613",
+      "StackId": "arn:aws:cloudformation:us-east-1:838336655103:stack/amplify-minap-dev-121613/1815c4d0-1f3d-11ee-a90c-12cfdfb3becd",
+      "AmplifyAppId": "d2fg794timq51n"
+    }
+  }
+}
