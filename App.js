@@ -7,6 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from 'minap/screens/home.js'
 import ProfileScreen from 'minap/screens/settings.js'
 import LoginScreen from './screens/login.js';
+import FeedbackScreen from './screens/feedback.js';
 
 import { Amplify } from 'aws-amplify';
 import awsExports from './src/aws-exports';
@@ -33,6 +34,7 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name="Dashboard" component={HomeScreen} />
+      <HomeStack.Screen name="Survey" component={FeedbackScreen} />
     </HomeStack.Navigator>
   );
 }

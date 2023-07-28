@@ -1,32 +1,27 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../auth-context';
 import { API, graphqlOperation } from 'aws-amplify';
-import { List, DataTable } from 'react-native-paper';
+import { List, DataTable, Badge } from 'react-native-paper';
 import { onCreateMinapDBEntry } from '../src/graphql/subscriptions'
 import { listMinapDBEntries } from '../src/graphql/queries';
 
-const data = [
-    { id: 1, title: 'Survey 1', description: 'Take survey 1' },
-    { id: 2, title: 'Survey 2', description: 'Take survey 2' },
-    { id: 3, title: 'Survey 3', description: 'Take survey 3' }
-];
 
-const CredentialList = ({ list }) => {
+const CredentialList = ({ list, navigation, surveyMsg }) => {
     const auth = useContext(AuthContext);
     const [expanded, setExpanded] = useState(false);
     const handlePress = () => setExpanded(!expanded);
     const [surveyList, setSurveyList] = useState([]);
     const past_time = new Date(Date.now() - 60*60*1000).toISOString();
-    console.log(past_time)
 
     const variables = {
       filter: {
         and: [
           { participantid: { eq: auth.participantid } },
           { studyid: { eq: auth.studyid } },
-          { sleepSessionEnd: { ge: past_time } }
+          { sleepSessionEnd: { ge: past_time } },
+          { remarks: { attributeExists: false } }
         ]
       }
     };
@@ -38,17 +33,20 @@ const CredentialList = ({ list }) => {
         variables: variables
       })
       .then(response => {
-        console.log("filter result")
+        console.log("filter initial result")
+        var newList = []
         const fetchedItems = response.data.listMinapDBEntries.items
         for (var i = 0; i < fetchedItems.length; i++) {
           const listItem = {
             id: fetchedItems[i].id,
-            title: "Sleep Survey in session " + fetchedItems[i]["sleepSessionEnd"],
-            description: 'Take this survey if you may',
+            title: "Ended at " + fetchedItems[i]["sleepSessionEnd"],
+            description: 'Take this survey. Expires within 1 h',
             record: fetchedItems[i]["sleepSessionEnd"]
           }
-          setSurveyList(prevList => Array.isArray(prevList) ? prevList.concat(listItem) : [listItem])
+          newList.push(listItem);
         }
+
+        setSurveyList(newList)
       })
       .catch(err => console.log(err));
 
@@ -56,105 +54,115 @@ const CredentialList = ({ list }) => {
           graphqlOperation(onCreateMinapDBEntry)
       ).subscribe({
           next: ({ provider, value }) => {
-              // console.log({ provider, value })
               const sessionObj = value.data.onCreateMinapDBEntry
               console.log(sessionObj)
               const awsDate = new Date(sessionObj.sleepSessionEnd);
               const dateString = awsDate.toISOString();
               const listItem = {
                   id: sessionObj.id,
-                  title: "Sleep Survey in session " + dateString,
-                  description: 'Take this survey if you may',
+                  title: "Ended at  " + dateString,
+                  description: 'Take this survey. Expires within 1 hr',
                   record: dateString
               }
               setSurveyList(prevList => Array.isArray(prevList) ? prevList.concat(listItem) : [listItem])
-              console.log(surveyList)
           },
           error: (error) => console.warn(error)
       });
-  
-      // Clean up subscription on unmount
+
       return () => sub.unsubscribe();
-      }, []);
+      }, [surveyMsg]);
     
     return (
-        <List.Section style={styles.list}>
-            <List.Accordion
-                title="Your surveys"
-                left={props => <List.Icon {...props} icon="pen" />}
-                expanded={expanded}
-                onPress={handlePress}>
-                {Array.isArray(surveyList) && surveyList.map(item => (
-                    <List.Item key={item.id} title={item.title} description={item.description}/>
-                ))
-                }
-            </List.Accordion>
-        </List.Section>
+      <List.Section style={styles.list}>
+        <List.Accordion
+            title="Your surveys"
+            left={props => <List.Icon {...props} icon="pen" />}
+            right={() => <Badge>{ surveyList.length } </Badge>}
+            expanded={expanded}
+            onPress={handlePress}>
+            {Array.isArray(surveyList) && surveyList.map(item => (
+                <List.Item key={item.id} title={item.title} description={item.description} onPress={()=>navigation.navigate('Survey', {'id': item.id})}/>
+            ))
+            }
+        </List.Accordion>
+      </List.Section>
     );
 };
 
 const History = () => {
     const [page, setPage] = useState(0);
-    const [numberOfItemsPerPageList] = useState([2, 3, 4]);
+    const [numberOfItemsPerPageList] = useState([5, 6, 7, 8, 9, 10]);
     const [itemsPerPage, onItemsPerPageChange] = useState(
       numberOfItemsPerPageList[0]
     );
-  
-    const [items] = useState([
-     {
-       key: 1,
-       name: 'Cupcake',
-       calories: 356,
-       fat: 16,
-     },
-     {
-       key: 2,
-       name: 'Eclair',
-       calories: 262,
-       fat: 16,
-     },
-     {
-       key: 3,
-       name: 'Frozen yogurt',
-       calories: 159,
-       fat: 6,
-     },
-     {
-       key: 4,
-       name: 'Gingerbread',
-       calories: 305,
-       fat: 3.7,
-     },
-    ]);
+    const [surveyList, setSurveyList] = useState([]);
   
     const from = page * itemsPerPage;
-    const to = Math.min((page + 1) * itemsPerPage, items.length);
+    const to = Math.min((page + 1) * itemsPerPage, surveyList.length);
   
     useEffect(() => {
       setPage(0);
+      API.graphql({
+        query: listMinapDBEntries
+      })
+      .then(response => {
+        console.log("filter initial result")
+        var newList = []
+        const fetchedItems = response.data.listMinapDBEntries.items
+        for (var i = 0; i < fetchedItems.length; i++) {
+          const listItem = {
+            id: fetchedItems[i].id,
+            end: fetchedItems[i]["sleepSessionEnd"],
+            start: fetchedItems[i]["sleepSessionEnd"]
+          }
+          newList.push(listItem);
+        }
+        setSurveyList(newList.sort((a, b) => b.end.localeCompare(a.end)))
+      })
+      .catch(err => console.log(err));
+
+      const sub = API.graphql(
+        graphqlOperation(onCreateMinapDBEntry)
+        ).subscribe({
+            next: ({ provider, value }) => {
+                const sessionObj = value.data.onCreateMinapDBEntry
+                console.log(sessionObj)
+                const end = new Date(sessionObj.sleepSessionEnd);
+                const endDateString = end.toISOString();
+                const start = new Date(sessionObj.sleepSessionStart);
+                const startDateString = start.toISOString();
+                const listItem = {
+                    id: sessionObj.id,
+                    start: startDateString,
+                    end: endDateString
+                }
+                setSurveyList(prevList => Array.isArray(prevList) ? prevList.concat(listItem) : [listItem])
+            },
+            error: (error) => console.warn(error)
+        });
+
+        return () => sub.unsubscribe();
     }, [itemsPerPage]);
   
     return (
-      <DataTable>
+      <DataTable style={styles.datatable}>
         <DataTable.Header>
-          <DataTable.Title>Dessert</DataTable.Title>
-          <DataTable.Title numeric>Calories</DataTable.Title>
-          <DataTable.Title numeric>Fat</DataTable.Title>
+          <DataTable.Title>Session Start</DataTable.Title>
+          <DataTable.Title>Session End</DataTable.Title>
         </DataTable.Header>
   
-        {items.slice(from, to).map((item) => (
-          <DataTable.Row key={item.key}>
-            <DataTable.Cell>{item.name}</DataTable.Cell>
-            <DataTable.Cell numeric>{item.calories}</DataTable.Cell>
-            <DataTable.Cell numeric>{item.fat}</DataTable.Cell>
+        {surveyList.slice(from, to).map((item) => (
+          <DataTable.Row key={item.id}>
+            <DataTable.Cell numeric>{item.start}</DataTable.Cell>
+            <DataTable.Cell numeric>{item.end}</DataTable.Cell>
           </DataTable.Row>
         ))}
   
         <DataTable.Pagination
           page={page}
-          numberOfPages={Math.ceil(items.length / itemsPerPage)}
+          numberOfPages={Math.ceil(surveyList.length / itemsPerPage)}
           onPageChange={(page) => setPage(page)}
-          label={`${from + 1}-${to} of ${items.length}`}
+          label={`${from + 1}-${to} of ${surveyList.length}`}
           numberOfItemsPerPageList={numberOfItemsPerPageList}
           numberOfItemsPerPage={itemsPerPage}
           onItemsPerPageChange={onItemsPerPageChange}
@@ -165,13 +173,17 @@ const History = () => {
     );
   };  
 
-export default function HomeScreen () {
+export default function HomeScreen ({navigation, route }) {
     const auth = useContext(AuthContext)
+    const { surveyMsg } = route.params ?? { surveyMsg: null }
+    console.log(surveyMsg)
     console.log(auth)
     return (
         <View style={styles.container}>
-            <CredentialList list={data}/>
-            <History/>
+            <ScrollView>
+              <CredentialList navigation={navigation} surveyMsg={surveyMsg}/>
+              <History/>
+            </ScrollView>
             <StatusBar style="auto" />
         </View>
     );
@@ -189,6 +201,10 @@ const styles = StyleSheet.create({
     },
     list: {
         width: '100%',
-        backgroundColor: '#f4ebf5'
+        backgroundColor: '#f4ebf5',
+        overflow: 'scroll'
+    },
+    datatable: {
+      marginBottom: 16
     }
 });

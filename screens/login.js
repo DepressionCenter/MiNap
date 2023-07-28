@@ -13,22 +13,6 @@ export default function LoginScreen ({ navigation }) {
     async function _onLoginPressed () {
         console.log(participantid)
         console.log(studyid)
-    //   try 
-    //   {
-    //     if (participantid.value == "" || !studyid.value == "") return;
-    //     const createEntry = {
-    //         participantid: participantid.value,
-    //         studyid: studyid.value,
-            // sleepSessionStart: 0,
-            // sleepSessionEnd: 0,
-            // remarks: ""
-    //     };
-    //     await API.graphql(graphqlOperation(createMinapDBEntry, {input: createEntry}));
-    //   }
-    //   catch (err) {
-    //     console.log('error creating entry:', err);
-    //     return;
-    //   }
         try 
         {
             if (!participantid.value || !studyid.value) {
