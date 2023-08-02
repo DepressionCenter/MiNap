@@ -1,0 +1,20 @@
+{
+    "aws": {
+      "region_name": "us-east-1",
+      "aws_access_key_id": " ", 
+      "aws_secret_access_key": " "
+    },
+    "dynamodb": {
+      "table_name": " "
+    },
+    "oracle": {
+      "host": " ",
+      "port":  ,
+      "service_name": " ",
+      "user": " ",
+      "password": " "
+    }
+  }
+  
+  
+ 
