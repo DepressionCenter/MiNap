@@ -13,7 +13,7 @@ Code and documentation for Mi Nap sleep diary smartwatch app and related infrast
 
 
 ## Documentation
-<Links to manual, wiki, full documentation, etc.>
+[<Links to manual, wiki, full documentation, etc.>](https://teamdynamix.umich.edu/TDClient/210/Portal/KB/?CategoryID=885)
 
 
 ## Additional Resources
