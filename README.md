@@ -18,11 +18,19 @@ Code and documentation for Mi Nap sleep diary smartwatch app and related infrast
 
 ## Additional Resources
 <Links to study website, related projects, etc.>
+The branches in this repository include:
+• dbsync - dedicated to syncing data between local and Michigan Medicine servers.
+• mobile - dedicated to the companion mobile application developed in React Native.
+• new-frontend - dedicated to the smartwatch participant application.
 
 
 
 ## About the Team
-< 1-2 paragraphs about your core, study team, class or project. >
+The App has been developed by a cohort team of 4 members from the [ITS 2023 internship](https://its.umich.edu/internship/cohorts).
+Anika is a graduate student in the Data Science program at the University of Michigan, and is passionate about full stack application development, project manager and data engineering.
+Quishi is a graduate student at the Michigan School of Information and is enthusiastic about Data Analytics.
+Max is a Sophomore at the University of Michigan and is passionate about developing applications.
+Raphael graduated from the Computer Science program at UofM and is passionate about frontend developements.
 
 
 
@@ -37,6 +45,10 @@ If you need assistance identifying a contact person, email the EFDC's Mobile Tec
 #### Contributors:
 + Eisenberg Family Depression Center [(@DepressionCenter)](https://github.com/DepressionCenter/)
 + Gabriel Mongefranco [(@gabrielmongefranco)](https://github.com/gabrielmongefranco)
++ Anika Raisa Chowdhury [(@RaisaAnika)](https://github.com/RaisaAnika)
++ Max Liu [(@maxliu2001)](https://github.com/maxliu2001)
++ Raphel Jeong Hin Chin [(@jeonghin)](https://github.com/jeonghin)
++ Quishi Zhao [@quishizUM](https://github.com/qiushizUM)
 
 
 
