@@ -3,34 +3,27 @@
 # <Repository Title>
 
 ## Description
-Code and documentation for Mi Nap sleep diary smartwatch app and related infrastructure, developed by the 2023 ITS intern cohort at the University of Michigan. This Fitbit / Apple Watch / Garmin smartwatch app allows clinical research participants to keep a sleep diary on their watch, with the data being securely transferred to a staging cloud storage service, and then to a Oracle PL/SQL database that sits behind a firewal.
-
-
-
-## Quick Start Guide
-<Quick compile/run instructions>
-
+Code and documentation for Mi Nap sleep diary smartwatch app and related infrastructure, developed by the 2023 ITS intern cohort at the University of Michigan. This Fitbit / Apple Watch / Garmin smartwatch app allows clinical research participants to keep a sleep diary on their watch, with the data being securely transferred to a staging cloud storage service, and then to an Oracle PL/SQL database that sits behind a firewall.
 
 
 ## Documentation
-[<Links to manual, wiki, full documentation, etc.>](https://teamdynamix.umich.edu/TDClient/210/Portal/KB/?CategoryID=885)
+[MiNap Documentation - Eisenberg Family Depression Center Knowledge Base](https://teamdynamix.umich.edu/TDClient/210/Portal/KB/?CategoryID=885)
 
 
-## Additional Resources
-<Links to study website, related projects, etc.>
+## Repo Structure
 The branches in this repository include:
-• dbsync - dedicated to syncing data between local and Michigan Medicine servers.
-• mobile - dedicated to the companion mobile application developed in React Native.
-• new-frontend - dedicated to the smartwatch participant application.
+* dbsync - dedicated to syncing data between local and Michigan Medicine servers.
+* mobile - dedicated to the companion mobile application developed in React Native.
+* new-frontend - dedicated to the smartwatch participant application.
 
 
 
 ## About the Team
 The App has been developed by a cohort team of 4 members from the [ITS 2023 internship](https://its.umich.edu/internship/cohorts).
-Anika is a graduate student in the Data Science program at the University of Michigan, and is passionate about full stack application development, project manager and data engineering.
+Anika is a graduate student in the Data Science program at the University of Michigan and is passionate about full-stack application development, project management, and data engineering.
 Quishi is a graduate student at the Michigan School of Information and is enthusiastic about Data Analytics.
-Max is a Sophomore at the University of Michigan and is passionate about developing applications.
-Raphael graduated from the Computer Science program at UofM and is passionate about frontend developements.
+Max is a rising Junior at the University of Michigan majoring in Computer Science and Data Science and is passionate about full-stack development and robotics.
+Raphael graduated from the Computer Science program at UofM and is passionate about front-end development.
 
 
 
