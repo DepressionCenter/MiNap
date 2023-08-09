@@ -23,7 +23,7 @@ The App has been developed by a cohort team of 4 members from the [ITS 2023 inte
 Anika is a graduate student in the Data Science program at the University of Michigan and is passionate about full-stack application development, project management, and data engineering.
 Quishi is a graduate student at the Michigan School of Information and is enthusiastic about Data Analytics.
 Max is a rising Junior at the University of Michigan majoring in Computer Science and Data Science and is passionate about full-stack development and robotics.
-Raphael graduated from the Computer Science program at UofM and is passionate about front-end development.
+[Raphael](https://jeonghin.com/) is a graduate student in the Master of Science in Information program at the University of Michigan School of Information. He is passionate about clustering methods, human-computer interaction, mHealth, and most applied Data Science methods and does front-end development during his free time.
 
 
 
@@ -41,7 +41,7 @@ If you need assistance identifying a contact person, email the EFDC's Mobile Tec
 + Anika Raisa Chowdhury [(@RaisaAnika)](https://github.com/RaisaAnika)
 + Max Liu [(@maxliu2001)](https://github.com/maxliu2001)
 + Raphel Jeong Hin Chin [(@jeonghin)](https://github.com/jeonghin)
-+ Quishi Zhao [@quishizUM](https://github.com/qiushizUM)
++ Quishi Zhao [(@quishizUM)](https://github.com/qiushizUM)
 
 
 
