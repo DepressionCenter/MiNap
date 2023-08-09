@@ -49,7 +49,6 @@ If you need assistance identifying a contact person, email the EFDC's Mobile Tec
 + None
 
 
-
 ## License
 ### Copyright Notice
 Copyright © 2023 The Regents of the University of Michigan
