@@ -20,7 +20,7 @@ The branches in this repository include:
 
 ## About the Team
 The App has been developed by a cohort team of 4 members from the [ITS 2023 internship](https://its.umich.edu/internship/cohorts).
-Anika is a graduate student in the Data Science program at the University of Michigan and is passionate about full-stack application development, project management, and data engineering.
+[Anika](https://www.linkedin.com/in/anikaraisa/) is a graduate student in the Data Science program at the University of Michigan and is passionate about full-stack application development, project management, and data engineering.
 Quishi is a graduate student at the Michigan School of Information and is enthusiastic about Data Analytics.
 Max is a rising Junior at the University of Michigan majoring in Computer Science and Data Science and is passionate about full-stack development and robotics.
 [Raphael](https://jeonghin.com/) is a graduate student in the Master of Science in Information program at the University of Michigan School of Information. He is passionate about clustering methods, human-computer interaction, mHealth, and most applied Data Science methods and does front-end development during his free time.
