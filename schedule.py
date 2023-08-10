@@ -4,6 +4,9 @@ import subprocess
 import sched
 import time
 
+#variable to determine how often the script will run autonomously once in production
+run_interval = 300 
+
 def execute_sync(sc):
     try:
         subprocess.call(["python3", "AWStoOracle.py"])
@@ -18,13 +21,12 @@ def execute_sync(sc):
     print("execute the scripts every 3 second")
     
     # Schedule new time for next call
-    s.enter(3, 1, execute_sync, (sc,))
+    s.enter(run_interval, 1, execute_sync, (sc,))
 
 # Initialize the scheduler
 s = sched.scheduler(time.time, time.sleep)
 
-s.enter(3, 1, execute_sync, (s,))
+s.enter(run_interval, 1, execute_sync, (s,))
 
 # Start the scheduler
 s.run()
-
