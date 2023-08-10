@@ -3,7 +3,7 @@ import oracledb
 import boto3
 import json
 from boto3.dynamodb.conditions import Key
-import uuid
+from datetime import datetime
 
 def read_config():
     f = open("./config.json")
@@ -34,54 +34,32 @@ def aws_sync():
     cursor = connection.cursor()
 
     response = table.scan()
-    # for item in response['Items']:
-    #     entryid = item['id']
-    #     print('\n ', item)
-    #     if 'remarks' in item:
-    #         print(item['participantid'], item['studyid'], item['sleepSessionStart'], item['sleepSessionEnd'], item['remarks'])
-    #     else:
-    #         item['remarks'] = 'No remarks available.'
-    #         print(item['participantid'], item['studyid'], item['sleepSessionStart'], item['sleepSessionEnd'],item['remarks'] )
-
-    #     #print(item['participantid'], item['studyid'], item['sleepSessionStart'], item['sleepSessionEnd'], json.dumps(item['remarks']))
-    #     try:
-    #         cursor.execute(
-    #             f"INSERT INTO SESSIONS (PARTICIPANT_ID, STUDY_ID, START_TIME, END_TIME, REMARKS) \
-    #             VALUES ({str(item['participantid'])}, {str(item['studyid'])}, {item['sleepSessionStart']}, {item['sleepSessionEnd']}, {json.dumps(item['remarks'])})"
-    #         )
-    #         print("Inserted entry to Oracle id " + str(entryid))
-    #     except Exception as e:
-    #         print("Record Insertion failed")
-    #         print(e)
-    #         break
-
-    # ... 
 
     for item in response['Items']:
         entryid = item['id']
-        print('\n ', item)
-        if 'remarks' in item:
-         print(item['participantid'], item['studyid'], item['sleepSessionStart'], item['sleepSessionEnd'], item['remarks'])
-        else:
-            item['remarks'] = 'No remarks available.'
-            print(item['participantid'], item['studyid'], item['sleepSessionStart'], item['sleepSessionEnd'], item['remarks'])
-
+        start_time = datetime.strptime(item['sleepSessionStart'], "%Y-%m-%dT%H:%M:%S.%fZ")
+        end_time = datetime.strptime(item['sleepSessionEnd'], '%Y-%m-%dT%H:%M:%S.%fZ')
+        survey_data = json.dumps(item['remarks']) if 'remarks' in item else 'no data'
+        print(type(start_time), type(end_time))
+        print(survey_data)
         try:
+            query = "INSERT INTO SESSIONS (PARTICIPANT_ID, STUDY_ID, START_TIME, END_TIME, SURVEY) VALUES (:1, :2, :3, :4, :5)"
             cursor.execute(
-                "INSERT INTO SESSIONS (PARTICIPANT_ID, STUDY_ID, START_TIME, END_TIME, REMARKS) "
-                "VALUES (:part_id, :study_id, :start_time, :end_time, :remarks)",
-                part_id=item['participantid'],
-                study_id=item['studyid'],
-                start_time=item['sleepSessionStart'],
-                end_time=item['sleepSessionEnd'],
-                remarks=json.dumps(item['remarks'])
+                query,(
+                    str(item['participantid']),
+                    str(item['studyid']),
+                    start_time,
+                    end_time,
+                    survey_data
+                )
             )
             print("Inserted entry to Oracle id " + str(entryid))
+            connection.commit()
+            print('data commited')
         except Exception as e:
             print("Record Insertion failed")
             print(e)
             break
-
 
 
         table.delete_item(
