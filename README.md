@@ -7,7 +7,7 @@ Code and documentation for Mi Nap sleep diary smartwatch app and related infrast
 
 
 ## Documentation
-[MiNap Documentation - Eisenberg Family Depression Center Knowledge Base](https://teamdynamix.umich.edu/TDClient/210/Portal/KB/?CategoryID=885)
+[MiNap Documentation - Eisenberg Family Depression Center Knowledge Base](https://teamdynamix.umich.edu/TDClient/210/DepressionCenter/KB/?CategoryID=885)
 
 
 ## Repo Structure
