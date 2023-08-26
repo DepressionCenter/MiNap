@@ -13,22 +13,6 @@ export default function LoginScreen ({ navigation }) {
     async function _onLoginPressed () {
         console.log(participantid)
         console.log(studyid)
-    //   try 
-    //   {
-    //     if (participantid.value == "" || !studyid.value == "") return;
-    //     const createEntry = {
-    //         participantid: participantid.value,
-    //         studyid: studyid.value,
-            // sleepSessionStart: 0,
-            // sleepSessionEnd: 0,
-            // remarks: ""
-    //     };
-    //     await API.graphql(graphqlOperation(createMinapDBEntry, {input: createEntry}));
-    //   }
-    //   catch (err) {
-    //     console.log('error creating entry:', err);
-    //     return;
-    //   }
         try 
         {
             if (!participantid.value || !studyid.value) {
@@ -65,7 +49,7 @@ export default function LoginScreen ({ navigation }) {
         auth.login(participantid.value, studyid.value);
         navigation.navigate('AfterInitScreen');
     }
-  
+
     return (
         <View style={styles.container}>
             <Surface style={styles.surface} elevation={4}>
@@ -117,8 +101,8 @@ const styles = StyleSheet.create({
         height: 180,
     },
     surface: {
-      backgroundColor: '#fff',
-      gap: 8,
-      padding: 20,
+        backgroundColor: '#fff',
+        gap: 8,
+        padding: 20,
     },
 });

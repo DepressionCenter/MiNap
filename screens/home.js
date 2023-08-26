@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../auth-context';
 import { API, graphqlOperation } from 'aws-amplify';
 import { List, DataTable } from 'react-native-paper';
-import { onCreateMinapDBEntry } from '../src/graphql/subscriptions'
+import { onCreateMinapDBEntry, onDeleteMinapDBEntry } from '../src/graphql/subscriptions'
 import { listMinapDBEntries } from '../src/graphql/queries';
 
 const data = [
@@ -72,9 +72,26 @@ const CredentialList = ({ list }) => {
           },
           error: (error) => console.warn(error)
       });
+      
+      // subcribes to data entry deletion during database sync
+      const subdel = API.graphql(
+        graphqlOperation(onDeleteMinapDBEntry)
+        ).subscribe({
+            next: ({ provider, value }) => {
+                // console.log({ provider, value })
+                const sessionObj = value.data.onDeleteMinapDBEntry
+                console.log(sessionObj.id)
+                setSurveyList(prevList => Array.isArray(prevList) ? prevList.filter(item => item.id !== sessionObj.id) : [])
+                console.log(surveyList)
+            },
+            error: (error) => console.warn(error)
+        });
   
       // Clean up subscription on unmount
-      return () => sub.unsubscribe();
+      return () => {
+        sub.unsubscribe();
+        subdel.unsubscribe();
+      }
       }, []);
     
     return (
