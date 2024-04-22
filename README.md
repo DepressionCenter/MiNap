@@ -12,9 +12,9 @@ Code and documentation for Mi Nap sleep diary smartwatch app and related infrast
 
 ## Repo Structure
 The branches in this repository include:
-* dbsync - dedicated to syncing data between local and Michigan Medicine servers.
-* mobile - dedicated to the companion mobile application developed in React Native.
-* new-frontend - dedicated to the smartwatch participant application.
+* [**dbsync**](https://github.com/DepressionCenter/MiNap/tree/dbsync) - dedicated to syncing data between local and Michigan Medicine servers.
+* [**mobile**](https://github.com/DepressionCenter/MiNap/tree/mobile) - dedicated to the companion mobile application developed in React Native.
+* [**new-frontend**](https://github.com/DepressionCenter/MiNap/tree/new-frontend) - dedicated to the smartwatch participant application.
 
 
 
