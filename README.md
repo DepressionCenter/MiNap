@@ -1,12 +1,17 @@
 ![Depression Center Logo](https://github.com/DepressionCenter/.github/blob/main/images/EFDCLogo_375w.png "depressioncenter.org")
 
-# <Repository Title>
+# MiNap
 
 ## Description
 Code and documentation for Mi Nap sleep diary smartwatch app and related infrastructure, developed by the 2023 ITS intern cohort at the University of Michigan. This Fitbit / Apple Watch / Garmin smartwatch app allows clinical research participants to keep a sleep diary on their watch, with the data being securely transferred to a staging cloud storage service, and then to an Oracle PL/SQL database that sits behind a firewall.
 
+<img width="500" height="573" alt="image" src="https://github.com/user-attachments/assets/2c2b06a7-00ea-4268-9b89-91449419be0c" />
+
+<img width="1310" height="797" alt="image" src="https://github.com/user-attachments/assets/379827e8-c337-4675-9bbc-61a92453ae2a" />
+
 
 ## Documentation
+
 [MiNap Documentation - Eisenberg Family Depression Center Knowledge Base](https://teamdynamix.umich.edu/TDClient/210/DepressionCenter/KB/?CategoryID=885)
 
 
