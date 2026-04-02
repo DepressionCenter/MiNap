@@ -1,9 +1,9 @@
 ![Depression Center Logo](https://github.com/DepressionCenter/.github/blob/main/images/EFDCLogo_375w.png "depressioncenter.org")
 
-# MiNap
+# MiNap™
 
 ## Description
-Code and documentation for Mi Nap sleep diary smartwatch app and related infrastructure, developed by the 2023 ITS intern cohort at the University of Michigan. This Fitbit / Apple Watch / Garmin smartwatch app allows clinical research participants to keep a sleep diary on their watch, with the data being securely transferred to a staging cloud storage service, and then to an Oracle PL/SQL database that sits behind a firewall.
+Code and documentation for MiNap™ sleep diary smartwatch app and related infrastructure, developed by the 2023 ITS intern cohort at the University of Michigan. This Fitbit / Apple Watch / Garmin smartwatch app allows clinical research participants to keep a sleep diary on their watch, with the data being securely transferred to a staging cloud storage service, and then to an Oracle PL/SQL database that sits behind a firewall.
 
 <img width="500" height="573" alt="image" src="https://github.com/user-attachments/assets/2c2b06a7-00ea-4268-9b89-91449419be0c" />
 
@@ -56,7 +56,8 @@ If you need assistance identifying a contact person, email the EFDC's Mobile Tec
 
 ## License
 ### Copyright Notice
-Copyright © 2023 The Regents of the University of Michigan
+MiNap™ is a trademark of The Regents of the University of Michigan.
+Copyright © 2023-2026 The Regents of the University of Michigan.
 
 
 ### Software and Library License
@@ -82,4 +83,4 @@ If you find this repository, code or paper useful for your research, please cite
 
 ----
 
-Copyright © 2023 The Regents of the University of Michigan
+Copyright © 2023-2026 The Regents of the University of Michigan
