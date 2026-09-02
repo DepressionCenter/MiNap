@@ -3,7 +3,11 @@
 # MiNap™
 
 ## Description
-Code and documentation for MiNap™ sleep diary smartwatch app and related infrastructure, developed by the 2023 ITS intern cohort at the University of Michigan. This Fitbit / Apple Watch / Garmin smartwatch app allows clinical research participants to keep a sleep diary on their watch, with the data being securely transferred to a staging cloud storage service, and then to an Oracle PL/SQL database that sits behind a firewall.
+MiNap™ is an open-source smartwatch sleep diary system for clinical and sleep research. Its core interaction is intentionally simple: one tap when going to sleep and one tap when waking up, with an optional survey after the wake-up tap.
+
+Participants can record these sleep and wake events from Fitbit, Apple Watch, or Garmin devices, and study data can be staged in cloud storage before synchronization to an institutional Oracle database.
+
+The project is organized across implementation branches for database synchronization, a React Native companion app, and the smartwatch front end. Researchers and developers can use the code and documentation as a reference architecture for wearable sleep-diary studies.
 
 <img width="500" height="573" alt="image" src="https://github.com/user-attachments/assets/2c2b06a7-00ea-4268-9b89-91449419be0c" />
 
